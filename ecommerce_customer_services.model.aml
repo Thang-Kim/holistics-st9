@@ -4,28 +4,28 @@ Model ecommerce_customer_services {
   description: ''
   data_source_name: 'demodb'
   dimension request_status {
-    label: 'Request Status'
-    type: 'text'
-    hidden: false
+    label: "Request Status"
+    type: "text"
     definition: @sql {{ #SOURCE.request_status }};;
+    description: "Request status of Ecommerce"
   }
   dimension received_at {
-    label: 'Received At'
-    type: 'datetime'
-    hidden: false
+    label: "Received At"
+    type: "datetime"
     definition: @sql {{ #SOURCE.received_at }};;
+    description: "Time received a ticket"
   }
   dimension first_response_at {
-    label: 'First Response At'
-    type: 'datetime'
-    hidden: false
+    label: "First Response At"
+    type: "datetime"
     definition: @sql {{ #SOURCE.first_response_at }};;
+    description: "FIrst ticket response time"
   }
   dimension completed_at {
-    label: 'Completed At'
-    type: 'datetime'
-    hidden: false
+    label: "Completed At"
+    type: "datetime"
     definition: @sql {{ #SOURCE.completed_at }};;
+    description: "Time completed a ticket"
   }
 
   owner: 'my.nguyen@holistics.io'
