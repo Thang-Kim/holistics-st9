@@ -4,10 +4,10 @@ Model ecommerce_financial {
   description: ''
   data_source_name: 'demodb'
   dimension month {
-    label: 'Month'
-    type: 'date'
-    hidden: false
+    label: "Month"
+    type: "date"
     definition: @sql {{ #SOURCE.month }};;
+    description: "Time month etc"
   }
   dimension sales {
     label: 'Sales'
