@@ -1,28 +1,34 @@
-// Refer to the template below to build model. For more information, please visit: https://docs.holistics.io/docs/aml/syntax/model
-//--------------------------------------------
+Model ecommerce_customer_services {
+  type: 'table'
+  label: 'Customer Services'
+  description: ''
+  data_source_name: 'demodb'
+  dimension request_status {
+    label: "Request Status"
+    type: "text"
+    definition: @sql {{ #SOURCE.request_status }};;
+    description: "Request status of Ecommerce"
+  }
+  dimension received_at {
+    label: "Received At"
+    type: "datetime"
+    definition: @sql {{ #SOURCE.received_at }};;
+    description: "Time received a ticket"
+  }
+  dimension first_response_at {
+    label: "First Response At"
+    type: "datetime"
+    definition: @sql {{ #SOURCE.first_response_at }};;
+    description: "FIrst ticket response time"
+  }
+  dimension completed_at {
+    label: "Completed At"
+    type: "datetime"
+    definition: @sql {{ #SOURCE.completed_at }};;
+    description: "Time completed a ticket"
+  }
 
-// Model model_name {
-//   type: 'table'
-//   label: "Model Label"
-//   description: "Model Description"
-//   owner: 'your_email@domain.com'
-//   data_source_name: 'data_source_name'
-
-//   table_name: 'your_table_name'
-
-//   dimension dimension_name {
-//     label: 'Dimension Label'
-//     type: 'text | number | date | datetime | truefalse'
-//     description: 'Field Description'
-//     hidden: true|false
-//     definition: @sql {{#SOURCE.column_name}};;
-//   }
-
-//   measure measure_name {
-//     label: 'Measure Name'
-//     type: 'number | date | datetime'
-//     definition: @sql {{#SOURCE.column_name}};;
-//     aggregation_type: 'count | count_distinct | sum | avg'
-//   }
-
-// }
+  owner: 'my.nguyen@holistics.io'
+  <<<<<<<<
+  table_name: '"ecommerce"."customer_services"'
+}
