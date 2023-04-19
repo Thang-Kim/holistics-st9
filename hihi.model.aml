@@ -27,7 +27,7 @@ Model ecommerce_customer_services {
     definition: @sql {{ #SOURCE.completed_at }};;
     description: "Time completed a ticket"
   }
-
+<<<<<<<<
   owner: 'my.nguyen@holistics.io'
   table_name: '"ecommerce"."customer_services"'
 }
