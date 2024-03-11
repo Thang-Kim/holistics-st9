@@ -2,7 +2,7 @@ Model ecommerce_cities {
   type: 'table'
   label: 'Cities'
   description: ''
-  data_source_name: 'staging9'
+  data_source_name: 'khanh_sqlserver'
   dimension id {
     label: 'Id'
     type: 'number'
