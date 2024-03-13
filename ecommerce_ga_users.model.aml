@@ -24,4 +24,10 @@ Model ecommerce_ga_users {
 
   owner: 'my.nguyen@holistics.io'
   table_name: '"ecommerce"."ga_users"'
+  measure aaa {
+    label: "Aaa"
+    type: "number"
+    definition: @sql count({{ users_count }});;
+    aggregation_type: "custom"
+  }
 }
