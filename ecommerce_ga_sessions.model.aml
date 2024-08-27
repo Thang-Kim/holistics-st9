@@ -3,12 +3,6 @@ Model ecommerce_ga_sessions {
   label: 'Ga Sessions'
   description: ''
   data_source_name: 'demodb'
-  dimension sessions_count {
-    label: 'Sessions Count'
-    type: 'number'
-    hidden: false
-    definition: @sql {{ #SOURCE.sessions_count }};;
-  }
 
   owner: 'my.nguyen@holistics.io'
   table_name: '"ecommerce"."ga_sessions"'
