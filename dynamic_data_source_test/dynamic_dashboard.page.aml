@@ -1,5 +1,5 @@
-Dashboard untitled {
-  title: 'Untitled'
+Dashboard dynamic_dashboard {
+  title: 'Dynamic Dashboard'
   description: ''''''
 
   block title: TextBlock {
