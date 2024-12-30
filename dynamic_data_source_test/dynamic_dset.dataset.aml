@@ -25,5 +25,5 @@ Dataset d_cities {
       definition: @aql model.name is abc.first ;;
       enabled: true
     }
-  }
+  } 
 }
