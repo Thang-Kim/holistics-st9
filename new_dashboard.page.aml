@@ -16,9 +16,7 @@ Dashboard new_dashboard {
       dataset: d_cities
       field: ref('ecommerce_cities', 'name')
     }
-    default {
-      operator: 'is'
-      value: 'asdasd'
-    }
+    operator: 'is'
+    value: H. current_user.city
   }
 }
