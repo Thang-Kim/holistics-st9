@@ -14,16 +14,4 @@ Dataset d_cities {
     description: ""
     definition: @aql count(ecommerce_cities.id);;
   }
-
-  param abc {
-    value: H.current_user.city
-    type: 'date'
-  }
-
-  always_filter {
-    filter1: {
-      definition: @aql model.name is abc.first ;;
-      enabled: true
-    }
-  } 
 }
