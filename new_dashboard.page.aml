@@ -9,9 +9,5 @@ Dashboard new_dashboard {
       layer: 1
     }
   }
-  block f1: FilterBlock {
-    field: model.name,
-    operator: 'is'
-    value: H.current_user.city
-  }
+
 }
