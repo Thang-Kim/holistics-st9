@@ -79,7 +79,7 @@ Dashboard dashboard {
   view: CanvasLayout {
     label: 'View 1'
     width: 650
-    height: 1030
+    height: 870
     block filter_block {
       position: pos(20, 780, 400, 80)
     }
