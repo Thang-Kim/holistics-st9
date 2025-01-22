@@ -89,6 +89,8 @@ Dashboard dashboard {
     block v2 {
       position: pos(50, 500, 650, 320)
     }
+    mobile {
+      mode: 'auto'
+    }
   }
-
 }
