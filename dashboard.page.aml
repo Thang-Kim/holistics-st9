@@ -93,6 +93,7 @@ Dashboard dashboard {
       mode: 'manual'
       block v1
       block filter_block
+      block v2
     }
   }
 }
