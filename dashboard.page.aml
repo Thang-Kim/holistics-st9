@@ -11,7 +11,7 @@ Dashboard dashboard {
     }
   }
   block v1: VizBlock {
-    label: 'Name and Parent hô hô'
+    label: 'Name and Parent'
     viz: DataTable {
       dataset: ecommerce_dataset
       fields: [
