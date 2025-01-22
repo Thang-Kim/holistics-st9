@@ -84,7 +84,7 @@ Dashboard dashboard {
       position: pos(60, 880, 400, 80)
     }
     block v1 {
-      position: pos(90, 30, 620, 420)
+      position: pos(20, 20, 620, 420)
     }
     block v2 {
       position: pos(50, 500, 650, 320)
