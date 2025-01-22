@@ -81,7 +81,7 @@ Dashboard dashboard {
     width: 1220
     height: 1030
     block filter_block {
-      position: pos(60, 880, 400, 80)
+      position: pos(20, 780, 400, 80)
     }
     block v1 {
       position: pos(20, 20, 620, 420)
