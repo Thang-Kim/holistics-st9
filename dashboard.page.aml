@@ -76,6 +76,38 @@ Dashboard dashboard {
       }
     }
   }
+  block v3: VizBlock {
+    label: 'Untitled Report'
+    viz: DataTable {
+      dataset: vinhhh_test_activities
+      theme {
+
+      }
+      fields: [
+        VizFieldFull {
+          ref: ref('public_activities', 'trackable_type')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('public_activities', 'owner_type')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('public_activities', 'key')
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+      }
+    }
+  }
   view: CanvasLayout {
     label: 'View 1'
     width: 650
@@ -88,6 +120,10 @@ Dashboard dashboard {
     }
     block v2 {
       position: pos(20, 450, 620, 320)
+    }
+    block v3 {
+      position: pos(10, 870, 330, 220)
+      layer: 1
     }
     mobile {
       mode: 'manual'
