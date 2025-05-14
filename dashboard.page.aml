@@ -108,28 +108,39 @@ Dashboard dashboard {
       }
     }
   }
-  view: CanvasLayout {
+  view: TabLayout {
     label: 'View 1'
-    width: 650
-    height: 870
-    block filter_block {
-      position: pos(20, 780, 400, 80)
+    tab tab1: CanvasLayout {
+      label: 'Tab 1'
+      width: 650
+      height: 870
+      block v1 {
+        position: pos(20, 20, 620, 420)
+      }
+      block v2 {
+        position: pos(20, 450, 620, 320)
+      }
+      block v3 {
+        position: pos(10, 870, 330, 220)
+        layer: 1
+      }
+      block filter_block {
+        position: pos(20, 780, 400, 80)
+      }
+      mobile {
+        mode: 'manual'
+        block v1
+        block filter_block
+        block v2
+      }
     }
-    block v1 {
-      position: pos(20, 20, 620, 420)
-    }
-    block v2 {
-      position: pos(20, 450, 620, 320)
-    }
-    block v3 {
-      position: pos(10, 870, 330, 220)
-      layer: 1
-    }
-    mobile {
-      mode: 'manual'
-      block v1
-      block filter_block
-      block v2
+    tab tab2: CanvasLayout {
+      label: 'Tab 2'
+      height: 800
+      grid_size: 20
+      mobile {
+        mode: 'auto'
+      }
     }
   }
   theme: H.themes.classic
