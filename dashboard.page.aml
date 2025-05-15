@@ -275,35 +275,6 @@ Dashboard dashboard {
         layer: 4
       }
     }
-    block t1 {
-      position: pos(750, 90, 80, 50)
-      layer: 1
-    }
-    block t2 {
-      position: pos(750, 150, 170, 50)
-      layer: 2
-    }
-    block t3 {
-      position: pos(770, 240, 50, 50)
-      layer: 3
-    }
-    block t4 {
-      position: pos(750, 290, 50, 50)
-      layer: 4
-    }
-    block t5 {
-      position: pos(750, 340, 80, 50)
-      layer: 5
-    }
-    block f1 {
-      position: pos(740, 400, 300, 100)
-      layer: 6
-    }
-    block p1 {
-      position: pos(740, 500, 300, 100)
-      layer: 7
-    }
-    grid_size: 20
   }
   theme: H.themes.classic
   interactions: [
