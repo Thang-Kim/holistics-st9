@@ -25,7 +25,32 @@ Dashboard untitled_1 {
       </div>
     </div>;;
   }
-  interactions: []
+  block v1: VizBlock {
+    label: 'Untitled Report'
+    viz: DataTable {
+      dataset: vinhhh_test_activities
+      theme {
+
+      }
+      fields: [
+        VizFieldFull {
+          ref: ref('public_activities', 'created_at')
+          format {
+            type: 'datetime'
+          }
+        },
+        VizFieldFull {
+          ref: ref('public_activities', 'owner_type')
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+      }
+    }
+  }
   view: CanvasLayout {
     label: 'View 1'
     height: 840
@@ -35,6 +60,10 @@ Dashboard untitled_1 {
     }
     block title {
       position: pos(20, 20, 1160, 120)
+    }
+    block v1 {
+      position: pos(20, 840, 400, 300)
+      layer: 1
     }
   }
   theme: H.themes.classic
