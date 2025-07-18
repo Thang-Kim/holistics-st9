@@ -30,9 +30,10 @@ Model test_export_2_csv {
 
   import_source {
     type: 'csv'
-    source: 'test-export-2.csv'     
+    original_file_name: 'test-export-2.csv'     
     // => upcoming syntax: original_file_name: 'test-export-2.csv'
     uploaded_at: '2025-07-03 04:18:02'
+    hash: '123324'
     // hash: '...'
     // mappings: '...'
   }

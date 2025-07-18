@@ -40,10 +40,11 @@ Model audio_data_csv {
     definition: @sql CONCAT('<iframe src="',  {{ url }}, '"></iframe>');;
   }
 
-  import_source: ImportSource {
+  import_source {
     type: 'csv'
-    source: 'audio-data.csv'
+    original_file_name: 'audio-data.csv'
     uploaded_at: '2025-07-16 10:38:58'
+    hash: '1235'
   }
   owner: 'di.hoang@holistics.io'
   table_name: '"public"."persisted_audio_data_csv7"'
