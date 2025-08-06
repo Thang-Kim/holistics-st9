@@ -13,6 +13,8 @@ Dataset homestay_dataset {
     budget_csv
     ,
     budget_copy_csv
+    ,
+    byte_order_mark_vux123_csv
   ]
   relationships: [
     relationship(homestay_listings.host_id > homestay_hosts.id, true),

@@ -1,6 +1,6 @@
-Model travel_preferences_demo_csv {
+Model byte_order_mark_vux123_csv {
   type: 'table'
-  label: 'Travel_preferences_demo_csv'
+  label: 'Byte_order_mark_vux123_csv'
   description: ''
   data_source_name: 'khai_postgre'
   dimension respondent_id {
@@ -55,8 +55,8 @@ Model travel_preferences_demo_csv {
   import_source {
     type: 'csv'
     original_file_name: 'travel-preferences-test.csv'
-    uploaded_at: '2025-08-06 09:24:43'
-    hash: '4197d483a2f1a9ea314bff589957b90158f00ba053b6937b1a269f1192a04f78'
+    uploaded_at: '2025-08-06 09:28:36'
+    hash: '4d1197ea2bd7348991763431c66e7a8ce04347b74594312fc39cd559e165f50b'
     custom_mappings: [
       custom_mapping("respondent_id", "respondent_id", "number"),
       custom_mapping("preferred_destination_type", "preferred_destination_type", "text"),
@@ -69,5 +69,5 @@ Model travel_preferences_demo_csv {
     ]
   }
   owner: 'vu.dq@holistics.io'
-  table_name: '"public"."persisted_travel_preferences_demo_csv"'
+  table_name: '"public"."persisted_byte_order_mark_1_csv45"'
 }
