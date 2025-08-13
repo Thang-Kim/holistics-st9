@@ -1,0 +1,45 @@
+Model boolean_csv {
+  type: 'table'
+  label: 'Boolean_csv'
+  description: ''
+  data_source_name: 'khai_postgre'
+  dimension name {
+    label: 'Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.name }};;
+  }
+  dimension age {
+    label: 'Age'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.age }};;
+  }
+  dimension city {
+    label: 'City'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.city }};;
+  }
+  dimension is_single {
+    label: 'Is Single'
+    type: 'truefalse'
+    hidden: false
+    definition: @sql {{ #SOURCE.is_single }};;
+  }
+
+  import_source {
+    type: 'csv'
+    original_file_name: 'boolean.csv'
+    uploaded_at: '2025-08-13 07:33:45'
+    hash: '4e2b90605a1401bdba95b027536bc143b3247d75a06ba1f356d8c664f30f426b'
+    custom_mappings: [
+      custom_mapping("name", "name", "text"),
+      custom_mapping("age", "age", "number"),
+      custom_mapping("city", "city", "text"),
+      custom_mapping("is_single", "is_single", "truefalse")
+    ]
+  }
+  owner: 'vu.dq@holistics.io'
+  table_name: '"public"."persisted_boolean_csv"'
+}
