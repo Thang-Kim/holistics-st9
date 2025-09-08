@@ -33,11 +33,11 @@ Model guests_list_csv {
     original_file_name: 'guests_list_with_rating.csv'
     uploaded_at: '2025-08-13 07:23:04'
     hash: '1b5892fbce544f302ba68a9a9f827e71bf2da216781f92271d45f9adf16b959b'
-    field_preferences: [
-      field_preference("full_name", "full_name", "text"),
-      field_preference("booking_id", "booking_id", "text"),
-      field_preference("gender", "guest_gender", "text"),
-      field_preference("rating", "rating", "number")
+    column_configs: [
+      H.imports.column_config("full_name", "full_name", "text"),
+      H.imports.column_config("booking_id", "booking_id", "text"),
+      H.imports.column_config("gender", "guest_gender", "text"),
+      H.imports.column_config("rating", "rating", "number")
     ]
   }
   owner: 'vu.dq@holistics.io'

@@ -33,11 +33,11 @@ Model very_very_longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
     original_file_name: 'very_very_longggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg_name.csv'
     uploaded_at: '2025-09-03 09:31:01'
     hash: 'cd3c993570105292e63778315f9a598fb9d96397412d7e6d35b2e2e2b2414eab'
-    field_preferences: [
-      field_preference("name", "name", "text"),
-      field_preference("age", "age", "number"),
-      field_preference("city", "city", "text"),
-      field_preference("is_single", "is_single", "truefalse")
+    column_configs: [
+      H.imports.column_config("name", "name", "text"),
+      H.imports.column_config("age", "age", "number"),
+      H.imports.column_config("city", "city", "text"),
+      H.imports.column_config("is_single", "is_single", "truefalse")
     ]
   }
   owner: 'vu.dq@holistics.io'
