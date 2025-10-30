@@ -3,6 +3,13 @@ Model vy_test_filter_dependency_sheet_1_csv {
   label: 'Vy test filter dependency sheet 1 csv'
   description: ''
   data_source_name: 'khai_postgre'
+  dimension date {
+    label: 'Date'
+    description: ''
+    type: 'date'
+    hidden: false
+    definition: @sql {{ #SOURCE.date }};;
+  }
   dimension category {
     label: 'Category'
     description: ''
@@ -20,10 +27,11 @@ Model vy_test_filter_dependency_sheet_1_csv {
 
   import_source: ImportSource {
     type: 'csv'
-    original_file_name: 'test_filter_dependency_-_sheet1.csv'
-    uploaded_at: '2025-10-30 04:32:04'
-    hash: '9101bfc0174ed3268b8c79a1d125dab5df528973c38d1841dc7b4abd45d7da9e'
+    original_file_name: 'test_filter_dependency_-_sheet11.csv'
+    uploaded_at: '2025-10-30 04:59:45'
+    hash: '0d900f43f86c7975a67a715981cd569404d8deff816eb5717b46ca6856a58913'
     column_configs: [
+      H.imports.column_config("date", "date", "date"),
       H.imports.column_config("category", "category", "text"),
       H.imports.column_config("sales", "sales", "number")
     ]
