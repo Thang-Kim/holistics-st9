@@ -1,9 +1,10 @@
+@tag('1️⃣ Trust/Endorsed')
 Dataset ecommerce_official {
   label: 'ecommerce_official'
   description: ''
   data_source_name: 'demodb'
   models: [
-    ecommerce_categories,
+    categories,
     users,
     products,
     orders,
@@ -27,6 +28,6 @@ Dataset ecommerce_official {
     ,
     relationship(products.merchant_id > merchants.id, true)
     ,
-    relationship(products.category_id > ecommerce_categories.id, true)
+    relationship(products.category_id > categories.id, true)
   ]
 }
