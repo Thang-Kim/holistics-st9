@@ -810,7 +810,7 @@ padding-right: 0.50rem;
       }
     }
     tab tab_5gm0: CanvasLayout {
-      label: 'Products'
+      label: 'Dumbell Plot'
       width: 1300
       height: 1040
       grid_size: 20
