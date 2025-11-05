@@ -12,28 +12,51 @@ Dashboard rich_text_demo {
   block v4: VizBlock {
     label: 'Name and Parent'
     viz: DataTable {
-      dataset: ecommerce_dataset
+      dataset: product_performance
+      calculation f_72dc36d {
+        label: 'Gap'
+        formula: @aql product_sales_performance_new_csv.added_to_cart - product_sales_performance_new_csv.purchased;;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
       fields: [
         VizFieldFull {
-          ref: ref('ecommerce_categories', 'name')
+          ref: r(product_sales_performance_new_csv.product_name)
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('ecommerce_categories', 'parent_id')
+          ref: r(product_sales_performance_new_csv.added_to_cart)
           format {
             type: 'number'
             pattern: 'inherited'
           }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.purchased)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: 'f_72dc36d'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'custom_f_72dc36d_1'
         }
       ]
       settings {
         show_row_number: true
-        aggregate_awareness {
-          enabled: true
-          debug_comments: true
-        }
+        sorts: [
+          SortSetting {
+            key: 'custom_f_72dc36d_1'
+            direction: 'desc'
+          }
+        ]
       }
     }
   }
@@ -711,10 +734,15 @@ Dashboard rich_text_demo {
     }
   }
   block t_8699: TextBlock {
-    content: @md This is 2025's top 10 best selling Products;;
+    content: @md This is the **top 10** product with the biggest gap between Add-to-cart number vs. Purchase number.
+
+Noticeably:
+- Exercise Bike with **320** items added but not bought
+- Resistance Bands with **240**
+- Yoga Mat with **210**;;
   }
   block t_eap8: TextBlock {
-    content: @md This is 2025's top 10 best selling Products;;
+    content: @md This is 2025's top 10 ...;;
   }
   block v_fyrn: VizBlock {
     label: 'User Table'
@@ -1139,11 +1167,11 @@ padding-right: 0.50rem;
         layer: 1
       }
       block v4 {
-        position: pos(20, 120, 620, 420)
+        position: pos(20, 120, 620, 360)
         layer: 2
       }
       block v5 {
-        position: pos(20, 560, 620, 420)
+        position: pos(20, 500, 620, 420)
         layer: 3
       }
       block t_8699 {
@@ -1151,7 +1179,7 @@ padding-right: 0.50rem;
         layer: 4
       }
       block t_eap8 {
-        position: pos(660, 560, 360, 240)
+        position: pos(660, 500, 360, 240)
         layer: 4
       }
       mobile {
