@@ -357,23 +357,30 @@ Dashboard rich_text_demo {
   block t_c5fj: TextBlock {
     content: @md Text with {{ `Number` }};;
   }
+  block t_mpiz: TextBlock {
+    content: @md Filter to update text value;;
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab_t2lk: CanvasLayout {
       label: 'Rich Text Visualizations'
       width: 1640
-      height: 1320
+      height: 1400
       grid_size: 20
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_z3mq {
-        position: pos(20, 340, 1260, 960)
+        position: pos(20, 280, 1260, 1020)
         layer: 1
       }
       block t_c5fj {
-        position: pos(20, 20, 960, 120)
+        position: pos(20, 140, 960, 120)
+        layer: 2
+      }
+      block t_mpiz {
+        position: pos(20, 0, 960, 120)
         layer: 2
       }
     }
