@@ -703,6 +703,10 @@ Dashboard rich_text_demo {
       settings {
         show_row_total: true
         show_column_total: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
       }
     }
   }
@@ -819,6 +823,34 @@ Dashboard rich_text_demo {
       }
       mobile {
         mode: 'auto'
+      }
+    }
+    tab tab_jlbb: CanvasLayout {
+      label: 'Card Grid'
+      width: 1340
+      height: 1460
+      grid_size: 20
+      auto_expand_vertically: true
+      mobile {
+        mode: 'auto'
+      }
+      block v_p4lx {
+        position: pos(20, 20, 1300, 1420)
+        layer: 3
+      }
+    }
+    tab tab_5gm0: CanvasLayout {
+      label: 'Dumbell Plot'
+      width: 1300
+      height: 1040
+      grid_size: 20
+      auto_expand_vertically: true
+      mobile {
+        mode: 'auto'
+      }
+      block v_pfcb {
+        position: pos(20, 20, 1260, 1000)
+        layer: 1
       }
     }
   }
