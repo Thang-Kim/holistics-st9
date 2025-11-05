@@ -115,16 +115,256 @@ Dashboard rich_text_demo {
       }
     }
   }
+  block v_z3mq: VizBlock {
+    label: 'Product name, Added to cart and 6 more'
+    viz: MarkdownViz {
+      dataset: product_performance
+      rows: [
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.product_name)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.added_to_cart)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.purchased)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.cart_abandonment)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.conversion_rate)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_performance, product_sales_performance_new_csv.start_percent)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_performance, product_sales_performance_new_csv.end_percent)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_performance, product_sales_performance_new_csv.bar_width)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
+      content: @md <style>
+  .dumbbell-container {
+    padding: 1.5rem;
+    max-width: 1200px;
+  }
+
+  .dumbbell-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #F3F4F6;
+  }
+
+  .dumbbell-row:last-child {
+    border-bottom: none;
+  }
+
+  .dumbbell-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .dumbbell-plot-area {
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .dumbbell-bar-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dumbbell-line {
+    position: absolute;
+    height: 8px;
+    background: linear-gradient(to right, #0891F2, #F1434B);
+    border-radius: 4px;
+    opacity: 0.6;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dumbbell-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .dumbbell-dot.start {
+    background-color: #0891F2;
+  }
+
+  .dumbbell-dot.end {
+    background-color: #F1434B;
+  }
+
+  .dumbbell-value {
+    position: absolute;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dumbbell-value.start {
+    color: #0891F2;
+    transform: translate(calc(-100% - 12px), -50%);
+  }
+
+  .dumbbell-value.end {
+    color: #F1434B;
+    transform: translate(12px, -50%);
+  }
+
+  .dumbbell-title {
+    padding: 0 0 1rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .dumbbell-legend {
+    display: flex;
+    gap: 2rem;
+    padding: 0 0 1.5rem 0;
+    font-size: 0.75rem;
+    color: #6B7280;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .legend-dot.start {
+    background-color: #0891F2;
+  }
+
+  .legend-dot.end {
+    background-color: #F1434B;
+  }
+
+  @media (max-width: 768px) {
+    .dumbbell-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .dumbbell-label {
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+    }
+
+    .dumbbell-plot-area {
+      height: 60px;
+    }
+  }
+</style>
+
+<div class="dumbbell-title">Product Performance: Purchases vs. Cart Additions</div>
+
+<div class="dumbbell-legend">
+  <div class="legend-item">
+    <span class="legend-dot start"></span>
+    <span>Purchased</span>
+  </div>
+  <div class="legend-item">
+    <span class="legend-dot end"></span>
+    <span>Added to Cart</span>
+  </div>
+</div>
+
+<div class="dumbbell-container">
+{% map(rows) %}
+  <div class="dumbbell-row">
+    <div class="dumbbell-label">{{ `Product name` }}</div>
+    <div class="dumbbell-plot-area">
+      <div class="dumbbell-bar-container">
+        <div class="dumbbell-line" style="left: {{ `Start Percent` }}%; width: {{ `Bar Width` }}%;"></div>
+        <div class="dumbbell-dot start" style="left: {{ `Start Percent` }}%;"></div>
+        <div class="dumbbell-value start" style="left: {{ `Start Percent` }}%;">{{ `Purchased` }}</div>
+        <div class="dumbbell-dot end" style="left: {{ `End Percent` }}%;"></div>
+        <div class="dumbbell-value end" style="left: {{ `End Percent` }}%;">{{ `Added to cart` }}</div>
+      </div>
+    </div>
+  </div>
+{% end %}
+</div> ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+      }
+    }
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab_t2lk: CanvasLayout {
       label: 'Rich Text Visualizations'
-      width: 1300
-      height: 800
+      width: 1640
+      height: 1160
       grid_size: 20
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
+      }
+      block v_z3mq {
+        position: pos(20, 20, 1260, 960)
+        layer: 1
       }
     }
     tab tab2: CanvasLayout {
