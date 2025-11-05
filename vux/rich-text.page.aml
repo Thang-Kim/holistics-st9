@@ -351,20 +351,30 @@ Dashboard rich_text_demo {
       }
     }
   }
+  block t_4p57: TextBlock {
+    content: @md This month sales is: 1000;;
+  }
+  block t_c5fj: TextBlock {
+    content: @md Text with {{ `Number` }};;
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab_t2lk: CanvasLayout {
       label: 'Rich Text Visualizations'
       width: 1640
-      height: 1160
+      height: 1320
       grid_size: 20
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_z3mq {
-        position: pos(20, 20, 1260, 960)
+        position: pos(20, 340, 1260, 960)
         layer: 1
+      }
+      block t_c5fj {
+        position: pos(20, 20, 960, 120)
+        layer: 2
       }
     }
     tab tab2: CanvasLayout {
@@ -386,6 +396,10 @@ Dashboard rich_text_demo {
       block v6 {
         position: pos(20, 120, 330, 220)
         layer: 4
+      }
+      block t_4p57 {
+        position: pos(640, 460, 340, 60)
+        layer: 5
       }
       mobile {
         mode: 'auto'
