@@ -1131,7 +1131,7 @@ padding-right: 0.50rem;
   view: TabLayout {
     label: 'View 1'
     tab tab2: CanvasLayout {
-      label: 'Boring and Static'
+      label: '🥱 Boring and Static'
       height: 1360
       grid_size: 20
       block f1 {
@@ -1160,7 +1160,7 @@ padding-right: 0.50rem;
       width: 1040
     }
     tab tab_t2lk: CanvasLayout {
-      label: 'Dumbbell Plot'
+      label: '🔥 Dumbbell Plot'
       width: 1300
       height: 1020
       grid_size: 20
@@ -1174,7 +1174,7 @@ padding-right: 0.50rem;
       }
     }
     tab tab_88q9: CanvasLayout {
-      label: 'Card Grid'
+      label: '🔥 Card Grid'
       width: 1060
       height: 1180
       grid_size: 20
@@ -1188,7 +1188,7 @@ padding-right: 0.50rem;
       }
     }
     tab tab_jdlc: CanvasLayout {
-      label: 'Record Lookup'
+      label: '🔥 Record Lookup'
       width: 1080
       height: 560
       grid_size: 20
