@@ -796,7 +796,7 @@ padding-right: 0.50rem;
       }
     }
     tab tab_jlbb: CanvasLayout {
-      label: 'Cards'
+      label: 'Card Grid'
       width: 1340
       height: 1460
       grid_size: 20
