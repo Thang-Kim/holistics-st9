@@ -142,12 +142,12 @@ Dashboard rich_text_demo {
       content: @md <style>
   .dumbbell-container {
     padding: 1.5rem;
-    max-width: 1200px;
+    max-width: 800px;
   }
 
   .dumbbell-row {
     display: grid;
-    grid-template-columns: 180px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: 1.5rem;
     align-items: center;
     padding: 1rem 0;
@@ -166,7 +166,7 @@ Dashboard rich_text_demo {
 
   .dumbbell-plot-area {
     position: relative;
-    height: 50px;
+    height: 20px;
     display: flex;
     align-items: center;
   }
@@ -236,7 +236,7 @@ Dashboard rich_text_demo {
   .dumbbell-legend {
     display: flex;
     gap: 2rem;
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 0.5rem 0;
     font-size: 0.75rem;
     color: #6B7280;
   }
@@ -280,7 +280,7 @@ Dashboard rich_text_demo {
   }
 </style>
 
-<div class="dumbbell-title">Product Performance: Purchases vs. Cart Additions</div>
+<!-- <div class="dumbbell-title">Product Performance: Purchases vs. Cart Additions</div> -->
 
 <div class="dumbbell-legend">
   <div class="legend-item">
@@ -308,7 +308,7 @@ Dashboard rich_text_demo {
     </div>
   </div>
 {% end %}
-</div>  ;;
+</div>   ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -1161,12 +1161,12 @@ padding-right: 0.50rem;
     }
     tab tab_t2lk: CanvasLayout {
       label: '🔥 Dumbbell Plot'
-      width: 1300
-      height: 1020
+      width: 900
+      height: 700
       grid_size: 20
       auto_expand_vertically: true
       block v_z3mq {
-        position: pos(20, 20, 1260, 980)
+        position: pos(20, 20, 860, 660)
         layer: 1
       }
       mobile {
