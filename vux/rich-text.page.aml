@@ -57,15 +57,17 @@ Dashboard rich_text_demo {
     viz: LineChart {
       dataset: ecommerce_dataset
       x_axis: VizFieldFull {
-        ref: ref('ecommerce_financial', 'month')
+        ref: r(ecommerce_financial.month)
+        transformation: 'datetrunc year'
         format {
           type: 'date'
+          pattern: 'yyyy'
         }
       }
       y_axis {
         series {
           field: VizFieldFull {
-            ref: ref('ecommerce_financial', 'cost')
+            ref: r(ecommerce_financial.cost)
             aggregation: 'sum'
             format {
               type: 'number'
@@ -79,7 +81,7 @@ Dashboard rich_text_demo {
         }
         series {
           field: VizFieldFull {
-            ref: ref('ecommerce_financial', 'sales')
+            ref: r(ecommerce_financial.sales)
             aggregation: 'sum'
             format {
               type: 'number'
@@ -91,6 +93,9 @@ Dashboard rich_text_demo {
             color_palette: 'seq-magma'
           }
         }
+      }
+      settings {
+        x_axis_show_null_datetime: true
       }
     }
   }
@@ -726,15 +731,17 @@ Dashboard rich_text_demo {
     }
   }
   block t_8699: TextBlock {
-    content: @md This is the **top 10** product with the biggest gap between Add-to-cart number vs. Purchase number.
+    content: @md **Largest Cart Abandonment**: *See chart* 👉
 
-Noticeably:
-- Exercise Bike with **320** items added but not bought
-- Resistance Bands with **240**
-- Yoga Mat with **210**;;
+**High Conversion Rate**: *See chart* 👉
+
+**Opportunity Area**: 
+Exercise Bike and Resistance Bands have significant cart abandonment, suggesting potential for targeted remarketing campaigns or checkout optimization.;;
   }
   block t_eap8: TextBlock {
-    content: @md This is 2025's top 10 ...;;
+    content: @md Sales and Costs have a strictly inverse-proportional relationship.
+
+👈 *See chart* ;;
   }
   block v_fyrn: VizBlock {
     label: 'User Table'
@@ -1236,7 +1243,7 @@ padding-right: 0.50rem;
       height: 840
       grid_size: 20
       block v4 {
-        position: pos(20, 20, 620, 360)
+        position: pos(400, 20, 620, 360)
         layer: 2
       }
       block v5 {
@@ -1244,7 +1251,7 @@ padding-right: 0.50rem;
         layer: 3
       }
       block t_8699 {
-        position: pos(660, 20, 360, 240)
+        position: pos(20, 20, 360, 240)
         layer: 4
       }
       block t_eap8 {
@@ -1259,11 +1266,11 @@ padding-right: 0.50rem;
     tab tab_t2lk: CanvasLayout {
       label: '🔥 Dumbbell Plot'
       width: 900
-      height: 1000
+      height: 1020
       grid_size: 20
       auto_expand_vertically: true
       block v_z3mq {
-        position: pos(20, 320, 860, 660)
+        position: pos(20, 340, 860, 660)
         layer: 1
       }
       block v_x1m6 {
