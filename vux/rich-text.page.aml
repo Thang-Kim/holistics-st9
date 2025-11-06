@@ -1156,7 +1156,7 @@ padding-right: 0.50rem;
     }
   }
   block v_x1m6: VizBlock {
-    label: 'Add-to-Carts vs. Purchases'
+    label: 'Key Insights'
     viz: MarkdownViz {
       dataset: product_performance
       rows: [
@@ -1215,21 +1215,71 @@ padding-right: 0.50rem;
           }
         }
       ]
-      content: @md <div style="padding: 0.5rem; max-width: 800px; font-size: 0.9rem; line-height: 1.5; color: #374151;">
-    <p><strong>Key Insights:</strong></p>
-    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
-      <li><strong>Top Performers:</strong> Dumbbells (500 purchases), Exercise Bike (180 purchases),
-  and Fitness Tracker (450 purchases) lead in actual sales conversions.</li>
-      <li><strong>Largest Cart Abandonment:</strong> Exercise Bike shows the biggest gap with 320
-  abandoned carts (500 added vs. 180 purchased), followed by Resistance Bands (240 gap) and Yoga Mat
-  (210 gap).</li>
-      <li><strong>High Conversion Rate:</strong> Dumbbells demonstrate the strongest purchase intent
-  with only a 20-unit gap, while Jump Rope (60 gap) and Running Shoes (100 gap) also show relatively
-  strong conversion.</li>
-      <li><strong>Opportunity Area:</strong> Exercise Bike and Resistance Bands have significant cart
-  abandonment, suggesting potential for targeted remarketing campaigns or checkout optimization.</li>
-    </ul>
-  </div>  ;;
+      content: @md <style>
+  .insights-badge {
+    display: inline-block;
+    background: #EFF6FF;
+    color: #1E40AF;
+    padding: 0.08rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .insights-badge.red {
+    background: #FEF2F2;
+    color: #DC2626;
+  }
+
+  .insights-badge.green {
+    background: #F0FDF4;
+    color: #16A34A;
+  }
+
+  .insights-container {
+    padding: 1.5rem;
+    max-width: 800px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #374151;
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .insights-container ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style: none;
+  }
+
+  .insights-container li {
+    margin-bottom: 0.75rem;
+  }
+
+  .insights-container li:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="insights-container">
+  <!-- <p><strong>Key Insights:</strong></p> -->
+  <ul>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>Top Performers:</strong> Dumbbells (<span class="insights-badge">{{ rows[0].`Purchased` }}</span>), Fitness Tracker (<span class="insights-badge">{{ rows[1].`Purchased` }}</span>), and Wireless Headphones (<span class="insights-badge">{{ rows[2].`Purchased` }}</span>) lead in actual sales conversions.
+  </p></li>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>Largest Cart Abandonment:</strong> Exercise Bike shows the biggest gap with <span class="insights-badge red">{{ rows[3].`Cart abandonment` }} abandoned</span> (<span style="color: #DC2626; font-weight: 600;">{{ rows[3].`Added to cart` }}</span> added vs. <span style="color: #0891F2; font-weight: 600;">{{ rows[3].`Purchased` }}</span> purchased), followed by Resistance Bands (<span class="insights-badge red">{{ rows[4].`Cart abandonment` }} gap</span>) and Yoga Mat (<span class="insights-badge red">{{ rows[5].`Cart abandonment` }} gap</span>).
+  </p></li>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>High Conversion Rate:</strong> Dumbbells demonstrates the strongest purchase intent with only a <span class="insights-badge green">{{ rows[0].`Cart abandonment` }}-unit gap</span>, while Jump Rope (<span class="insights-badge green">{{ rows[6].`Cart abandonment` }} gap</span>) and Fitness Tracker (<span class="insights-badge green">{{ rows[1].`Cart abandonment` }} gap</span>) also show relatively strong conversion.
+  </p></li>
+  <li><p style="margin-bottom: 0; line-height: 1.8;">
+    <strong>Opportunity Area:</strong> Products with <span class="insights-badge red">&gt;200 gap</span> suggest potential for targeted remarketing campaigns or checkout optimization.
+  </p></li>
+  </ul>
+</div> ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -1266,7 +1316,7 @@ padding-right: 0.50rem;
     tab tab_sf0p: CanvasLayout {
       label: '🔥 Dynamic Summary'
       width: 820
-      height: 700
+      height: 800
       grid_size: 20
       auto_expand_vertically: true
       block v4 {
@@ -1274,7 +1324,7 @@ padding-right: 0.50rem;
         layer: 2
       }
       block v_x1m6 {
-        position: pos(20, 400, 780, 280)
+        position: pos(20, 400, 780, 380)
         layer: 1
       }
       mobile {
