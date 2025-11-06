@@ -1240,6 +1240,7 @@ padding-right: 0.50rem;
     label: 'View 1'
     tab tab2: CanvasLayout {
       label: '🥱 Boring and Static'
+      width: 1040
       height: 840
       grid_size: 20
       block v4 {
@@ -1261,20 +1262,29 @@ padding-right: 0.50rem;
       mobile {
         mode: 'auto'
       }
-      width: 1040
+    }
+    tab tab_sf0p: CanvasLayout {
+      label: '🔥 Dynamic Summary'
+      width: 880
+      height: 340
+      grid_size: 20
+      auto_expand_vertically: true
+      block v_x1m6 {
+        position: pos(20, 20, 840, 300)
+        layer: 1
+      }
+      mobile {
+        mode: 'auto'
+      }
     }
     tab tab_t2lk: CanvasLayout {
       label: '🔥 Dumbbell Plot'
       width: 900
-      height: 1020
+      height: 700
       grid_size: 20
       auto_expand_vertically: true
       block v_z3mq {
-        position: pos(20, 340, 860, 660)
-        layer: 1
-      }
-      block v_x1m6 {
-        position: pos(20, 20, 840, 300)
+        position: pos(20, 20, 860, 660)
         layer: 1
       }
       mobile {
