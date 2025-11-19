@@ -739,7 +739,7 @@ Dashboard rich_text_demo {
 Exercise Bike and Resistance Bands have significant cart abandonment, suggesting potential for targeted remarketing campaigns or checkout optimization.;;
   }
   block t_eap8: TextBlock {
-    content: @md Sales and Costs have a strictly inverse-proportional relationship.
+    content: @md *Sales* and *Costs* have a strictly **inverse-proportional relationship**.
 
 👈 *See chart* ;;
   }
