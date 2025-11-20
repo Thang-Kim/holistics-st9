@@ -319,16 +319,16 @@ Dashboard rich_text_demo {
     <div class="dumbbell-label">{{ `Product name` }}</div>
     <div class="dumbbell-plot-area">
       <div class="dumbbell-bar-container">
-        <div class="dumbbell-line" style="left: {{ `Start Percent` }}%; width: {{ `Bar Width` }}%;"></div>
-        <div class="dumbbell-dot start" style="left: {{ `Start Percent` }}%;"></div>
-        <div class="dumbbell-value start" style="left: {{ `Start Percent` }}%;">{{ `Purchased` }}</div>
-        <div class="dumbbell-dot end" style="left: {{ `End Percent` }}%;"></div>
-        <div class="dumbbell-value end" style="left: {{ `End Percent` }}%;">{{ `Added to cart` }}</div>
+        <div class="dumbbell-line" style="left: {{ `Start Percent`.raw }}%; width: {{ `Bar Width`.raw }}%;"></div>
+        <div class="dumbbell-dot start" style="left: {{ `Start Percent`.raw }}%;"></div>
+        <div class="dumbbell-value start" style="left: {{ `Start Percent`.raw }}%;">{{ `Purchased` }}</div>
+        <div class="dumbbell-dot end" style="left: {{ `End Percent`.raw }}%;"></div>
+        <div class="dumbbell-value end" style="left: {{ `End Percent`.raw }}%;">{{ `Added to cart` }}</div>
       </div>
     </div>
   </div>
 {% end %}
-</div>   ;;
+</div>    ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -659,7 +659,7 @@ Dashboard rich_text_demo {
 
 <!-- Header Section -->
 <div class="record-header">
-<img src="{{ rows.0.`Profile Image URL`.raw }}" alt="{{ rows.0.`Full Name` }}" class="record-image" />
+<img src="{{ rows.0.`Profile Image URL`.raw }}" alt="{{ rows.0.`Full Name`.formatted }}" class="record-image" />
 
 <div class="record-info">
 <div class="record-name">{{ rows.0.`Full Name` }}</div>
@@ -719,14 +719,10 @@ Dashboard rich_text_demo {
     <span class="detail-value">{{ rows.0.`User ID` }}</span>
   </div>
 </div>
-</div> ;;
+</div>  ;;
       settings {
         show_row_total: true
         show_column_total: true
-        aggregate_awareness {
-          enabled: true
-          debug_comments: true
-        }
       }
     }
   }
@@ -1110,7 +1106,7 @@ padding-right: 0.50rem;
 
 <li class="deal-container">
 <div class="deal-header">
-<img src="{{ `Product Image Url`.raw }}" class="deal-logo" alt="{{ `Name` }}">
+<img src="{{ `Product Image Url`.raw }}" class="deal-logo" alt="{{ `Name`.raw }}">
 <section class="deal-name flex flex-col" style="justify-content: start;">
 <div class="flex flex-row" style="align-items: center;">{{ `Name` }}
 </div>
@@ -1148,7 +1144,7 @@ padding-right: 0.50rem;
 
 {% end %}
 
-</ul>  ;;
+</ul>   ;;
       settings {
         show_row_total: true
         show_column_total: true
