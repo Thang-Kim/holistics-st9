@@ -34,4 +34,12 @@ Dataset ecommerce_official {
     ,
     relationship(users.id - user_lookup_csv.user_id, true)
   ]
+  dimension now_dim {
+    label: "Now Dim"
+    type: "datetime"
+    hidden: false
+    description: ""
+    definition: @aql @(now);;
+    model: orders
+  }
 }
