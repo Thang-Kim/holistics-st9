@@ -1635,17 +1635,27 @@ padding-right: 0.50rem;
       calculation is_key_city {
         label: 'Is Key City'
         formula: @aql case(
-    when: cities.name is 'New York', then: true,
-    when: cities.name is 'Paris', then: true,
-    when: cities.name is 'London', then: true,
-    when: cities.name is 'Hanoi', then: true,
-    when: cities.name is 'Jakarta', then: true,
-    when: cities.name is 'Canberra', then: true,
-    when: cities.name is 'Berlin', then: true,
-    when: cities.name is 'Singapore', then: true,
-    when: cities.name is 'Seoul', then: true,
-    when: cities.name is 'New Delhi', then: true,
-    else: false
+  when: cities.name == "New York",
+  then: true,
+  when: cities.name == "Paris",
+  then: true,
+  when: cities.name == "London",
+  then: true,
+  when: cities.name in ["Ha Noi", "Ho Chi Minh"],
+  then: true,
+  when: cities.name == "Jakarta",
+  then: true,
+  when: cities.name == "Canberra",
+  then: true,
+  when: cities.name == "Berlin",
+  then: true,
+  when: cities.name == "Singapore",
+  then: true,
+  when: cities.name == "Seoul",
+  then: true,
+  when: cities.name == "New Delhi",
+  then: true,
+  else: false
 );;
         calc_type: 'dimension'
         data_type: 'truefalse'
@@ -1784,7 +1794,7 @@ padding-right: 0.50rem;
       <span class="detail-value">{{ rows[0].`City` }}</span>
     </div>
   </div>
-</div>  ;;
+</div>   ;;
       settings {
         show_row_total: true
         show_column_total: true
