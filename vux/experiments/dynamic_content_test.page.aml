@@ -775,7 +775,7 @@ Exercise Bike and Resistance Bands have significant cart abandonment, suggesting
       }
     }
   }
-  block v_93o5: VizBlock {
+  block v_93o6: VizBlock {
     label: 'Product Overview'
     viz: MarkdownViz {
       dataset: ecommerce_official
