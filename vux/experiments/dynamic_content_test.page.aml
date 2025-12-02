@@ -1382,22 +1382,181 @@ padding-right: 0.50rem;
     }
   }
   block v_ce7h: VizBlock {
-    label: 'Total Users copy'
+    label: 'Total Users'
+    viz: MetricKpi {
+      dataset: ecommerce_official
+      value: VizFieldFull {
+        label: 'Total Users'
+        ref: r(users.id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        alignment: 'center'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_r6cv: VizBlock {
+    label: 'Continent and Continent Icon'
+    viz: MarkdownViz {
+      dataset: ecommerce_official
+      calculation continent_icon {
+        label: 'Continent Icon'
+        formula: @aql case(
+    when: countries.continent_name is 'Asia', then: '🌏',
+    when: countries.continent_name is 'North America', then: '🌎',
+    when: countries.continent_name is 'Europe', then: '🌍',
+    when: countries.continent_name is 'Oceania', then: '🌏',
+    else: '🌎'
+);;
+        calc_type: 'dimension'
+        data_type: 'text'
+        model: countries
+      }
+      rows: [
+        VizFieldFull {
+          label: 'Continent'
+          ref: r(countries.continent_name)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('countries', 'continent_icon')
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      content: @md <style>
+  .continent-selector {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .continent-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    background: #FFFFFF;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .continent-card:hover {
+    border-color: #3B82F6;
+    background: #F8FAFC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  .continent-card:active {
+    border-color: #2563EB;
+    background: #EFF6FF;
+    transform: translateY(0);
+  }
+
+  .continent-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .continent-label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .continent-desc {
+    font-size: 0.75rem;
+    color: #6B7280;
+    line-height: 1.3;
+  }
+</style>
+
+<div class="continent-selector">
+{% map(rows) %}
+  <div class="continent-card">
+    <span class="continent-icon">{{ `Continent Icon` }}</span>
+    <span class="continent-label">{{ `Continent` }}</span>
+  </div>
+{% end %}
+</div> ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_eabd: VizBlock {
+    label: 'GMV'
+    viz: MetricKpi {
+      dataset: ecommerce_official
+      value: VizFieldFull {
+        label: 'GMV'
+        ref: r(ecommerce_official.revenue)
+      }
+      settings {
+        alignment: 'center'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_kcwp: VizBlock {
+    label: 'Product Performance'
     viz: DataTable {
       dataset: ecommerce_official
       fields: [
         VizFieldFull {
-          label: 'Total Users copy'
-          ref: r(users.id)
-          aggregation: 'count'
+          ref: r(products.name)
+          format {
+            type: 'text'
+          }
+          uname: 'products_name'
+        },
+        VizFieldFull {
+          ref: r(order_items.quantity)
+          aggregation: 'sum'
           format {
             type: 'number'
             pattern: 'inherited'
           }
+          uname: 'sum_quantity_1'
         }
       ]
       settings {
         show_row_number: true
+        sorts: [
+          SortSetting {
+            key: 'sum_quantity_1'
+            direction: 'desc'
+          }
+        ]
+        column_styles: [
+          ColumnStyle {
+            key: 'products_name'
+            width: 249
+          }
+        ]
       }
     }
   }
@@ -1512,16 +1671,28 @@ padding-right: 0.50rem;
     }
     tab tab_mza6: CanvasLayout {
       label: 'Control Buttons 2'
-      width: 660
-      height: 560
-      grid_size: 20
+      width: 675
+      height: 690
+      grid_size: 15
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_ce7h {
-        position: pos(20, 260, 620, 280)
+        position: pos(330, 195, 330, 120)
         layer: 1
+      }
+      block v_r6cv {
+        position: pos(15, 15, 645, 180)
+        layer: 2
+      }
+      block v_eabd {
+        position: pos(15, 195, 315, 120)
+        layer: 1
+      }
+      block v_kcwp {
+        position: pos(15, 315, 645, 360)
+        layer: 3
       }
     }
   }
@@ -1532,10 +1703,8 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_93o5',
-            'v_0k2v',
-            'v_g7tl',
-            'v_ce7h'
+            'v_r6cv',
+            'v_kcwp'
           ]
           disabled: true
         }
@@ -1546,25 +1715,8 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_93o5',
-            'v_0k2v',
-            'v_g7tl',
-            'v_ce7h'
-          ]
-          disabled: true
-        }
-      ]
-    },
-    FilterInteraction {
-      from: 'v_93o5'
-      to: [
-        CustomMapping {
-          block: [
-            'v_p5re',
-            'v_fyrn',
-            'v_0k2v',
-            'v_g7tl',
-            'v_ce7h'
+            'v_r6cv',
+            'v_kcwp'
           ]
           disabled: true
         }
@@ -1575,10 +1727,8 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_p5re',
-            'v_fyrn',
-            'v_93o5',
-            'v_ce7h'
+            'v_r6cv',
+            'v_kcwp'
           ]
           disabled: true
         }
@@ -1589,23 +1739,34 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_p5re',
-            'v_fyrn',
-            'v_93o5',
-            'v_ce7h'
+            'v_r6cv',
+            'v_kcwp'
           ]
           disabled: true
         }
       ]
     },
     FilterInteraction {
-      from: 'v_ce7h'
+      from: 'v_r6cv'
       to: [
         CustomMapping {
           block: [
             'v_p5re',
             'v_fyrn',
-            'v_93o5',
+            'v_0k2v',
+            'v_g7tl'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_kcwp'
+      to: [
+        CustomMapping {
+          block: [
+            'v_p5re',
+            'v_fyrn',
             'v_0k2v',
             'v_g7tl'
           ]
