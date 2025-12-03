@@ -1383,91 +1383,6 @@ padding-right: 0.50rem;
       hide_label: true
     }
   }
-  block v_ce7h: VizBlock {
-    label: 'Total Users'
-    viz: MetricKpi {
-      dataset: ecommerce_official
-      value: VizFieldFull {
-        label: 'Total Users'
-        ref: r(users.id)
-        aggregation: 'count'
-        format {
-          type: 'number'
-          pattern: 'inherited'
-        }
-      }
-      settings {
-        alignment: 'center'
-      }
-    }
-    settings {
-      hide_label: true
-    }
-  }
-  block v_eabd: VizBlock {
-    label: 'GMV'
-    viz: MetricKpi {
-      dataset: ecommerce_official
-      value: VizFieldFull {
-        label: 'GMV'
-        ref: r(ecommerce_official.revenue)
-      }
-      settings {
-        alignment: 'center'
-      }
-    }
-    settings {
-      hide_label: true
-    }
-  }
-  block v_kcwp: VizBlock {
-    label: 'Product Performance'
-    viz: DataTable {
-      dataset: ecommerce_official
-      fields: [
-        VizFieldFull {
-          ref: r(products.name)
-          format {
-            type: 'text'
-          }
-          uname: 'products_name'
-        },
-        VizFieldFull {
-          label: 'Count of Order'
-          ref: r(order_items.order_id)
-          aggregation: 'count'
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(order_items.quantity)
-          aggregation: 'sum'
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-          uname: 'sum_quantity_1'
-        }
-      ]
-      settings {
-        show_row_number: true
-        sorts: [
-          SortSetting {
-            key: 'sum_quantity_1'
-            direction: 'desc'
-          }
-        ]
-        column_styles: [
-          ColumnStyle {
-            key: 'products_name'
-            width: 249
-          }
-        ]
-      }
-    }
-  }
   block v_mdra: VizBlock {
     label: 'Information'
     viz: MarkdownViz {
@@ -2199,6 +2114,109 @@ padding-right: 0.50rem;
       }
     }
   }
+  block v_l0eq: VizBlock {
+    label: 'Total Users copy copy'
+    viz: MetricKpi {
+      dataset: ecommerce_official
+      value: VizFieldFull {
+        label: 'Total Users'
+        ref: r(users.id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        label {
+          font_size: 26
+          font_color: '#07326C'
+        }
+        alignment: 'center'
+        metric_value {
+          font_size: 45
+          font_color: '#255DD4'
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_vq7e: VizBlock {
+    label: 'GMV copy copy'
+    viz: MetricKpi {
+      dataset: ecommerce_official
+      value: VizFieldFull {
+        label: 'GMV'
+        ref: r(ecommerce_official.revenue)
+      }
+      settings {
+        label {
+          font_size: 26
+          font_color: '#07326C'
+        }
+        alignment: 'center'
+        metric_value {
+          font_size: 45
+          font_color: '#18A59E'
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_i51a: VizBlock {
+    label: 'Best Performing Products copy'
+    viz: BarChart {
+      dataset: ecommerce_official
+      filter {
+        field: r(products.name)
+        operator: 'top'
+        value: 10
+        options {
+          rank_by {
+            field: r(order_items.quantity)
+            aggregation: 'sum'
+            logic: 'standard'
+          }
+        }
+      }
+      x_axis: VizFieldFull {
+        ref: r(products.name)
+        format {
+          type: 'text'
+        }
+        uname: 'products_name'
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: r(order_items.quantity)
+            aggregation: 'sum'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+            uname: 'sum_quantity_1'
+          }
+          settings {
+            color: '#18A59E'
+            color_palette: 0
+          }
+        }
+      }
+      settings {
+        sort {
+          field_index: 0
+          direction: 'desc'
+          type: 'series'
+        }
+        x_axis_show_null_datetime: false
+      }
+    }
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab2: CanvasLayout {
@@ -2297,20 +2315,8 @@ padding-right: 0.50rem;
     tab tab_mza6: CanvasLayout {
       label: '🔥 Control Buttons'
       width: 980
-      height: 680
+      height: 780
       auto_expand_vertically: true
-      block v_ce7h {
-        position: pos(330, 170, 310, 120)
-        layer: 1
-      }
-      block v_eabd {
-        position: pos(10, 170, 310, 120)
-        layer: 1
-      }
-      block v_kcwp {
-        position: pos(10, 300, 960, 370)
-        layer: 3
-      }
       block v_mdra {
         position: pos(650, 10, 320, 280)
         layer: 4
@@ -2318,6 +2324,18 @@ padding-right: 0.50rem;
       block v_ggbb {
         position: pos(10, 10, 630, 150)
         layer: 2
+      }
+      block v_l0eq {
+        position: pos(330, 170, 310, 120)
+        layer: 1
+      }
+      block v_vq7e {
+        position: pos(10, 170, 310, 120)
+        layer: 1
+      }
+      block v_i51a {
+        position: pos(10, 310, 960, 460)
+        layer: 3
       }
       mobile {
         mode: 'auto'
@@ -2349,10 +2367,12 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_kcwp',
             'v_mdra',
             'v_ggbb',
-            'v_lhqm'
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a'
           ]
           disabled: true
         }
@@ -2363,10 +2383,12 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_kcwp',
             'v_mdra',
             'v_ggbb',
-            'v_lhqm'
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a'
           ]
           disabled: true
         }
@@ -2376,7 +2398,12 @@ padding-right: 0.50rem;
       from: 'v_93o6'
       to: [
         CustomMapping {
-          block: 'v_lhqm'
+          block: [
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a'
+          ]
           disabled: true
         }
       ]
@@ -2386,10 +2413,12 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_kcwp',
             'v_mdra',
             'v_ggbb',
-            'v_lhqm'
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a'
           ]
           disabled: true
         }
@@ -2400,43 +2429,12 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
-            'v_kcwp',
             'v_mdra',
             'v_ggbb',
-            'v_lhqm'
-          ]
-          disabled: true
-        }
-      ]
-    },
-    FilterInteraction {
-      from: 'v_ce7h'
-      to: [
-        CustomMapping {
-          block: 'v_lhqm'
-          disabled: true
-        }
-      ]
-    },
-    FilterInteraction {
-      from: 'v_eabd'
-      to: [
-        CustomMapping {
-          block: 'v_lhqm'
-          disabled: true
-        }
-      ]
-    },
-    FilterInteraction {
-      from: 'v_kcwp'
-      to: [
-        CustomMapping {
-          block: [
-            'v_p5re',
-            'v_fyrn',
-            'v_0k2v',
-            'v_g7tl',
-            'v_lhqm'
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a'
           ]
           disabled: true
         }
@@ -2482,11 +2480,59 @@ padding-right: 0.50rem;
             'v_93o6',
             'v_0k2v',
             'v_g7tl',
-            'v_ce7h',
-            'v_eabd',
-            'v_kcwp',
             'v_mdra',
-            'v_ggbb'
+            'v_ggbb',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_l0eq'
+      to: [
+        CustomMapping {
+          block: [
+            'v_p5re',
+            'v_fyrn',
+            'v_93o6',
+            'v_0k2v',
+            'v_g7tl',
+            'v_lhqm'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_vq7e'
+      to: [
+        CustomMapping {
+          block: [
+            'v_p5re',
+            'v_fyrn',
+            'v_93o6',
+            'v_0k2v',
+            'v_g7tl',
+            'v_lhqm'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_i51a'
+      to: [
+        CustomMapping {
+          block: [
+            'v_p5re',
+            'v_fyrn',
+            'v_93o6',
+            'v_0k2v',
+            'v_g7tl',
+            'v_lhqm'
           ]
           disabled: true
         }
