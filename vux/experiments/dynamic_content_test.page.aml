@@ -2115,7 +2115,7 @@ padding-right: 0.50rem;
     }
   }
   block v_l0eq: VizBlock {
-    label: 'Total Users copy copy'
+    label: 'Total Users'
     viz: MetricKpi {
       dataset: ecommerce_official
       value: VizFieldFull {
@@ -2144,7 +2144,7 @@ padding-right: 0.50rem;
     }
   }
   block v_vq7e: VizBlock {
-    label: 'GMV copy copy'
+    label: 'GMV'
     viz: MetricKpi {
       dataset: ecommerce_official
       value: VizFieldFull {
@@ -2168,7 +2168,7 @@ padding-right: 0.50rem;
     }
   }
   block v_i51a: VizBlock {
-    label: 'Best Performing Products copy'
+    label: 'Best Performing Products'
     viz: BarChart {
       dataset: ecommerce_official
       filter {
