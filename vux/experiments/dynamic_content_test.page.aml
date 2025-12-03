@@ -2315,7 +2315,7 @@ padding-right: 0.50rem;
     tab tab_mza6: CanvasLayout {
       label: '🔥 Control Buttons'
       width: 980
-      height: 780
+      height: 770
       auto_expand_vertically: true
       block v_mdra {
         position: pos(650, 10, 320, 280)
@@ -2334,7 +2334,7 @@ padding-right: 0.50rem;
         layer: 1
       }
       block v_i51a {
-        position: pos(10, 310, 960, 460)
+        position: pos(10, 300, 960, 460)
         layer: 3
       }
       mobile {
