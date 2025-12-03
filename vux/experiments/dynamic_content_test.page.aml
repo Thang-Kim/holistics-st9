@@ -1759,6 +1759,16 @@ padding-right: 0.50rem;
     transform: translateY(0);
   }
 
+  .h-drill-selected {
+    color: green;
+  }
+
+  .country-card:has(.h-drill-selected) {
+    border-color: #2563EB;
+    background: #EFF6FF;
+    transform: translateY(0);
+  }
+
   /* .click-trigger {
     position: absolute;
     inset: 0;
@@ -1778,7 +1788,7 @@ padding-right: 0.50rem;
   }
 
   .country-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1;
   }
 
@@ -1801,10 +1811,9 @@ padding-right: 0.50rem;
     <span class="click-trigger">{{ `Country` }}</span>
     <span class="country-icon">{{ `Country Icon` }}</span>
     <span class="country-label">{{ `Country` }}</span>
-    <span class="country-desc">{{ `Country Description` }}</span>
   </div>
 {% end %}
-</div>  ;;
+</div>   ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -1907,27 +1916,27 @@ padding-right: 0.50rem;
     }
     tab tab_mza6: CanvasLayout {
       label: '🔥 Control Buttons'
-      width: 1000
-      height: 720
+      width: 980
+      height: 680
       auto_expand_vertically: true
       block v_ce7h {
-        position: pos(340, 210, 310, 120)
+        position: pos(330, 170, 310, 120)
         layer: 1
       }
       block v_eabd {
-        position: pos(20, 210, 310, 120)
+        position: pos(10, 170, 310, 120)
         layer: 1
       }
       block v_kcwp {
-        position: pos(20, 340, 970, 370)
+        position: pos(10, 300, 960, 370)
         layer: 3
       }
       block v_mdra {
-        position: pos(660, 20, 320, 310)
+        position: pos(650, 10, 320, 280)
         layer: 4
       }
       block v_ggbb {
-        position: pos(20, 30, 630, 170)
+        position: pos(10, 10, 630, 150)
         layer: 2
       }
       mobile {
