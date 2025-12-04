@@ -2259,16 +2259,16 @@ padding-right: 0.50rem;
     }
     tab tab_sf0p: CanvasLayout {
       label: '🔥 Dynamic Summary'
-      width: 880
-      height: 780
+      width: 900
+      height: 800
       grid_size: 20
       auto_expand_vertically: true
       block v4 {
-        position: pos(20, 20, 840, 360)
+        position: pos(20, 20, 860, 360)
         layer: 2
       }
       block v_x1m6 {
-        position: pos(20, 400, 840, 360)
+        position: pos(20, 400, 860, 380)
         layer: 1
       }
       mobile {
