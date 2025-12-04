@@ -1151,137 +1151,6 @@ padding-right: 0.50rem;
       }
     }
   }
-  block v_x1m6: VizBlock {
-    label: 'Key Insights'
-    viz: MarkdownViz {
-      dataset: product_performance
-      rows: [
-        VizFieldFull {
-          ref: r(product_sales_performance_new_csv.product_name)
-          format {
-            type: 'text'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_sales_performance_new_csv.added_to_cart)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_sales_performance_new_csv.purchased)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_sales_performance_new_csv.cart_abandonment)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_sales_performance_new_csv.conversion_rate)
-          format {
-            type: 'text'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_performance, product_sales_performance_new_csv.start_percent)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_performance, product_sales_performance_new_csv.end_percent)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(product_performance, product_sales_performance_new_csv.bar_width)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        }
-      ]
-      content: @md <style>
-  .insights-badge {
-    display: inline-block;
-    background: #EFF6FF;
-    color: #1E40AF;
-    padding: 0.08rem 0.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
-  .insights-badge.red {
-    background: #FEF2F2;
-    color: #DC2626;
-  }
-
-  .insights-badge.green {
-    background: #F0FDF4;
-    color: #16A34A;
-  }
-
-  .insights-container {
-    padding: 1.5rem;
-    max-width: 800px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #374151;
-    background: #FFFFFF;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-  }
-
-  .insights-container ul {
-    margin-top: 0.5rem;
-    padding-left: 1.5rem;
-    list-style: none;
-  }
-
-  .insights-container li {
-    margin-bottom: 0.75rem;
-  }
-
-  .insights-container li:last-child {
-    margin-bottom: 0;
-  }
-</style>
-
-<div class="insights-container">
-  <!-- <p><strong>Key Insights:</strong></p> -->
-  <ul>
-  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
-    <strong>Top Performers:</strong> Dumbbells (<span class="insights-badge">{{ rows[0].`Purchased` }}</span>), Fitness Tracker (<span class="insights-badge">{{ rows[1].`Purchased` }}</span>), and Wireless Headphones (<span class="insights-badge">{{ rows[2].`Purchased` }}</span>) lead in actual sales conversions.
-  </p></li>
-  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
-    <strong>Largest Cart Abandonment:</strong> Exercise Bike shows a big gap with <span class="insights-badge red">{{ rows[3].`Cart abandonment` }} abandoned</span> (<span style="color: #DC2626; font-weight: 600;">{{ rows[3].`Added to cart` }}</span> added vs. <span style="color: #0891F2; font-weight: 600;">{{ rows[3].`Purchased` }}</span> purchased), followed by Resistance Bands (<span class="insights-badge red">{{ rows[4].`Cart abandonment` }} gap</span>) and Yoga Mat (<span class="insights-badge red">{{ rows[5].`Cart abandonment` }} gap</span>).
-  </p></li>
-  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
-    <strong>High Conversion Rate:</strong> Dumbbells demonstrates the strongest purchase intent with only a <span class="insights-badge green">{{ rows[0].`Cart abandonment` }}-unit gap</span>, while Jump Rope (<span class="insights-badge green">{{ rows[6].`Cart abandonment` }} gap</span>) and Fitness Tracker (<span class="insights-badge green">{{ rows[1].`Cart abandonment` }} gap</span>) also show relatively strong conversion.
-  </p></li>
-  <li><p style="margin-bottom: 0; line-height: 1.8;">
-    <strong>Opportunity Area:</strong> Products with <span class="insights-badge red">&gt;200 gap</span> suggest potential for targeted remarketing campaigns or checkout optimization.
-  </p></li>
-  </ul>
-</div>  ;;
-      settings {
-        show_row_total: true
-        show_column_total: true
-      }
-    }
-  }
   block v_ud30: VizBlock {
     label: 'Total Users'
     viz: MetricKpi {
@@ -1740,6 +1609,205 @@ padding-right: 0.50rem;
       hide_label: true
     }
   }
+  block v_5q1s: VizBlock {
+    label: 'Product'
+    viz: DataTable {
+      dataset: product_performance
+      calculation f_72dc36d {
+        label: 'Gap'
+        formula: @aql product_sales_performance_new_csv.added_to_cart - product_sales_performance_new_csv.purchased;;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      fields: [
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.product_name)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.added_to_cart)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.purchased)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: 'f_72dc36d'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'custom_f_72dc36d_1'
+        }
+      ]
+      settings {
+        show_row_number: true
+        sorts: [
+          SortSetting {
+            key: 'custom_f_72dc36d_1'
+            direction: 'desc'
+          }
+        ]
+      }
+    }
+  }
+  block v_ufa3: VizBlock {
+    label: 'Key Insights'
+    viz: MarkdownViz {
+      dataset: product_performance
+      rows: [
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.product_name)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.added_to_cart)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.purchased)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'product_sales_performance_new_csv_purchased'
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.cart_abandonment)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_sales_performance_new_csv.conversion_rate)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_performance, product_sales_performance_new_csv.start_percent)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_performance, product_sales_performance_new_csv.end_percent)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(product_performance, product_sales_performance_new_csv.bar_width)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
+      content: @md <style>
+  .insights-badge {
+    display: inline-block;
+    background: #EFF6FF;
+    color: #1E40AF;
+    padding: 0.08rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .insights-badge.red {
+    background: #FEF2F2;
+    color: #DC2626;
+  }
+
+  .insights-badge.green {
+    background: #F0FDF4;
+    color: #16A34A;
+  }
+
+  .insights-container {
+    padding: 1.5rem;
+    max-width: 800px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #374151;
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .insights-container ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style: none;
+  }
+
+  .insights-container li {
+    margin-bottom: 0.75rem;
+  }
+
+  .insights-container li:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="insights-container">
+  <!-- <p><strong>Key Insights:</strong></p> -->
+  <ul>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>Top Performers:</strong>
+    <span>{{ rows[0].`Product name` }}</span> (<span class="insights-badge">{{ rows[0].`Purchased` }}</span>),
+    <span>{{ rows[1].`Product name` }}</span> (<span class="insights-badge">{{ rows[1].`Purchased` }}</span>),
+    and <span>{{ rows[2].`Product name` }}</span> (<span class="insights-badge">{{ rows[2].`Purchased` }}</span>) lead in actual sales conversions.
+  </p></li>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>Largest Cart Abandonment:</strong>
+    <span>{{ rows[7].`Product name` }}</span> shows a big gap with <span class="insights-badge red">{{ rows[7].`Cart abandonment` }} </span> abandoned 
+    (<span style="color: #DC2626; font-weight: 600;">{{ rows[7].`Added to cart` }}</span> added vs. <span style="color: #0891F2; font-weight: 600;">{{ rows[7].`Purchased` }}</span> purchased),
+    followed by <span>{{ rows[8].`Product name` }}</span> (<span class="insights-badge red">{{ rows[8].`Cart abandonment` }}</span>) 
+    and <span>{{ rows[9].`Product name` }}</span> (<span class="insights-badge red">{{ rows[9].`Cart abandonment` }} gap</span>).
+  </p></li>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>High Conversion Rate:</strong>
+    <span>{{ rows[0].`Product name` }}</span> demonstrates the strongest purchase intent with only a <span class="insights-badge green">{{ rows[0].`Cart abandonment` }}</span> unit gap,
+    while <span>{{ rows[1].`Product name` }}</span> (<span class="insights-badge green">{{ rows[1].`Cart abandonment` }}</span>) 
+    and <span>{{ rows[2].`Product name` }}</span> (<span class="insights-badge green">{{ rows[2].`Cart abandonment` }} gap</span>) also show relatively strong conversion.
+  </p></li>
+  <li><p style="margin-bottom: 0; line-height: 1.8;">
+    <strong>Opportunity Area:</strong> Products with <span class="insights-badge red">&ge;{{ rows[7].`Cart abandonment` }}</span> gap suggest potential for targeted remarketing campaigns or checkout optimization.
+  </p></li>
+  </ul>
+</div>   ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+        sorts: [
+          SortSetting {
+            key: 'product_sales_performance_new_csv_purchased'
+            direction: 'desc'
+          }
+        ]
+      }
+    }
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab2: CanvasLayout {
@@ -1769,20 +1837,20 @@ padding-right: 0.50rem;
     }
     tab tab_sf0p: CanvasLayout {
       label: '🔥 Dynamic Summary'
-      width: 820
-      height: 800
+      width: 880
+      height: 780
       grid_size: 20
       auto_expand_vertically: true
-      block v4 {
-        position: pos(20, 20, 780, 360)
-        layer: 2
-      }
-      block v_x1m6 {
-        position: pos(20, 400, 780, 380)
-        layer: 1
-      }
       mobile {
         mode: 'auto'
+      }
+      block v_5q1s {
+        position: pos(20, 20, 840, 360)
+        layer: 2
+      }
+      block v_ufa3 {
+        position: pos(20, 400, 840, 360)
+        layer: 1
       }
     }
     tab tab_t2lk: CanvasLayout {
@@ -1863,6 +1931,30 @@ padding-right: 0.50rem;
   }
   theme: H.themes.classic
   interactions: [
+    FilterInteraction {
+      from: 'v4'
+      to: [
+        CustomMapping {
+          block: [
+            'v_5q1s',
+            'v_ufa3'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_z3mq'
+      to: [
+        CustomMapping {
+          block: [
+            'v_5q1s',
+            'v_ufa3'
+          ]
+          disabled: true
+        }
+      ]
+    },
     FilterInteraction {
       from: 'v_p5re'
       to: [
@@ -1972,6 +2064,30 @@ padding-right: 0.50rem;
             'v_p5re',
             'v_fyrn',
             'v_93o5'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_5q1s'
+      to: [
+        CustomMapping {
+          block: [
+            'v4',
+            'v_z3mq'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_ufa3'
+      to: [
+        CustomMapping {
+          block: [
+            'v4',
+            'v_z3mq'
           ]
           disabled: true
         }
