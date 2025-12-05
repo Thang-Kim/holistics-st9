@@ -1682,17 +1682,17 @@ padding-right: 0.50rem;
   }
 
   .country-card:active {
-    border-color: #2563EB;
+    border-color: #1B7CE4;
     background: #EFF6FF;
     transform: translateY(0);
   }
 
   .h-drill-selected {
-    color: green;
+    color: #1B7CE4;
   }
 
   .country-card:has(.h-drill-selected) {
-    border-color: #2563EB;
+    border-color: #1B7CE4;
     background: #EFF6FF;
     transform: translateY(0);
   }
@@ -1741,7 +1741,7 @@ padding-right: 0.50rem;
     <span class="country-label">{{ `Country` }}</span>
   </div>
 {% end %}
-</div>   ;;
+</div>     ;;
       settings {
         show_row_total: true
         show_column_total: true
