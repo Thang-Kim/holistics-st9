@@ -1761,12 +1761,14 @@ padding-right: 0.50rem;
 <div class="country-selector">
 {% map(rows) %}
   <div class="country-card">
+   <!-- <h-drill row="0" value="{{ Country.raw }}" text="{{ Country.raw }}"> -->
     <span class="click-trigger">{{ `Country` }}</span>
     <span class="country-icon">{{ `Country Icon` }}</span>
     <span class="country-label">{{ `Country` }}</span>
-  </div>
+   <!-- </h-drill> -->
+   </div>
 {% end %}
-</div>     ;;
+</div>      ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -2421,7 +2423,7 @@ padding-right: 0.50rem;
       }
     }
   }
-  theme: H.themes.classic
+  theme: H.themes.oasis
   interactions: [
     FilterInteraction {
       from: 'v_p5re'
