@@ -2472,6 +2472,8 @@ padding-right: 0.50rem;
       to: [
         CustomMapping {
           block: [
+            'v_p5re',
+            'v_fyrn',
             'v_mdra',
             'v_ggbb',
             'v_lhqm',
