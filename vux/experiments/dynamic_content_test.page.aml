@@ -1381,6 +1381,17 @@ padding-right: 0.50rem;
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
   }
 
+  .click-trigger {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 200px;
+    letter-spacing: 1000px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
   .h-drill-selected {
     color: #1B7CE4;
   }
@@ -1395,9 +1406,12 @@ padding-right: 0.50rem;
 
 <div class="period-pills">
 {% map(rows) %}
-  <div class="period-pill">{{ `Period Label` }}</div>
+  <div class="period-pill">
+    <!-- <span class="click-trigger">{{ `Period Label` }}</span> -->
+    <span>{{ `Period Label` }}</span>
+  </div>
 {% end %}
-</div>    ;;
+</div>     ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -2212,6 +2226,12 @@ padding-right: 0.50rem;
     label: 'Best Performing Products'
     viz: BarChart {
       dataset: ecommerce_official
+      calculation f_eecb68c {
+        label: 'test'
+        formula: @aql 100*1230;;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
       filter {
         field: r(products.name)
         operator: 'top'
@@ -2245,6 +2265,18 @@ padding-right: 0.50rem;
           settings {
             color: '#18A59E'
             color_palette: 0
+          }
+        }
+        series {
+          field: VizFieldFull {
+            ref: 'f_eecb68c'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color_palette: 'seq-magma'
           }
         }
       }
