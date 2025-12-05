@@ -2267,18 +2267,6 @@ padding-right: 0.50rem;
             color_palette: 0
           }
         }
-        series {
-          field: VizFieldFull {
-            ref: 'f_eecb68c'
-            format {
-              type: 'number'
-              pattern: 'inherited'
-            }
-          }
-          settings {
-            color_palette: 'seq-magma'
-          }
-        }
       }
       settings {
         sort {
