@@ -2079,7 +2079,13 @@ padding-right: 0.50rem;
   color: green;
 }
 
-.country-card:has(.h-drill-selected) {
+.deal-container:has(.h-drill-selected) {
+  border-color: #2563EB;
+  background: #EFF6FF;
+  transform: translateY(0);
+}
+
+.deal-name:has(.h-drill-selected) {
   border-color: #2563EB;
   background: #EFF6FF;
   transform: translateY(0);
