@@ -2321,6 +2321,10 @@ padding-right: 0.50rem;
 # Total
 
 ## Column Total
+
+{{ col_totals.`cancelled`.`Revenue` }}
+
+
 {{ col_totals }}
 
 ## Row Total
@@ -2332,7 +2336,7 @@ padding-right: 0.50rem;
 # Cell ref
 
 ## Bottom
-{{ rows.-2.`Product Name` }} ;;
+{{ rows.-2.`Product Name` }}  ;;
       settings {
         show_row_total: true
         show_column_total: true
