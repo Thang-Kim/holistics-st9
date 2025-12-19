@@ -1,14 +1,6 @@
 Dashboard test_concurrent_edit_mhifc {
   title: 'Test concurrent edit'
   owner: 'tan.nguyen@holistics.io'
-  block filter_block: FilterBlock {
-    label: 'This is a Filter Block'
-    type: 'text'
-    default {
-      operator: 'is'
-      value: 'default'
-    }
-  }
   block v2: VizBlock {
     label: 'Sum of Cost and Sum of Sales by Month'
     viz: LineChart {
@@ -52,7 +44,7 @@ Dashboard test_concurrent_edit_mhifc {
     }
   }
   block v3: VizBlock {
-    label: 'Untitled Report'
+    label: 'Edit by user 2'
     viz: DataTable {
       dataset: vinhhh_test_activities
       theme {
@@ -204,6 +196,18 @@ Dashboard test_concurrent_edit_mhifc {
   }
   interactions: [
     FilterInteraction {
+      from: 'v1'
+      to: [
+        CustomMapping {
+          block: [
+            'v4',
+            'v5'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
       from: 'v2'
       to: [
         CustomMapping {
@@ -228,7 +232,10 @@ Dashboard test_concurrent_edit_mhifc {
       from: 'v4'
       to: [
         CustomMapping {
-          block: 'v2'
+          block: [
+            'v1',
+            'v2'
+          ]
           disabled: true
         }
       ]
@@ -237,7 +244,10 @@ Dashboard test_concurrent_edit_mhifc {
       from: 'v5'
       to: [
         CustomMapping {
-          block: 'v2'
+          block: [
+            'v1',
+            'v2'
+          ]
           disabled: true
         }
       ]
@@ -262,11 +272,8 @@ Dashboard test_concurrent_edit_mhifc {
         position: pos(440, 130, 620, 320)
       }
       block v3 {
-        position: pos(10, 870, 330, 220)
+        position: pos(740, 120, 330, 220)
         layer: 1
-      }
-      block filter_block {
-        position: pos(0, 330, 400, 80)
       }
       block t_ozuv {
         position: pos(120, 100, 200, 50)
@@ -279,7 +286,7 @@ Dashboard test_concurrent_edit_mhifc {
       }
     }
     tab tab2: CanvasLayout {
-      label: 'Tab 2'
+      label: 'Rename block'
       height: 800
       grid_size: 20
       block f1 {
