@@ -91,7 +91,6 @@ Dashboard dynamic_dashboard {
     viz: PivotTable {
       dataset: d_cities
       theme {
-
       }
       rows: [
         VizFieldFull {
@@ -129,7 +128,7 @@ Dashboard dynamic_dashboard {
     label: 'View 1'
     tab view_1: CanvasLayout {
       label: 'original tab'
-      height: 1540
+      height: 1280
       grid_size: 20
       block v1 {
         position: pos(20, 160, 760, 540)
