@@ -7,25 +7,34 @@ Dashboard dynamic_dashboard {
   }
   block v1: VizBlock {
     label: 'cities'
-    viz: DataTable {
+    viz: ColumnChart {
       dataset: d_cities
-      fields: [
-        VizFieldFull {
-          ref: ref('ecommerce_cities', 'id')
-          format {
-            type: 'number'
-            pattern: 'inherited'
+      theme {
+
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_cities.country_code)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce_cities.id)
+            aggregation: 'count'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
           }
-        },
-        VizFieldFull {
-          ref: ref('ecommerce_cities', 'name')
-          format {
-            type: 'text'
+          settings {
+            color_palette: 0
           }
         }
-      ]
+      }
       settings {
-        show_row_number: true
+        x_axis_show_null_datetime: false
       }
     }
   }
@@ -34,7 +43,6 @@ Dashboard dynamic_dashboard {
     viz: DataTable {
       dataset: d_cities
       theme {
-
       }
       fields: [
         VizFieldFull {
@@ -69,7 +77,7 @@ Dashboard dynamic_dashboard {
       height: 840
       grid_size: 20
       block v1 {
-        position: pos(20, 160, 400, 300)
+        position: pos(20, 160, 760, 540)
         layer: 1
       }
       block title {
@@ -78,8 +86,8 @@ Dashboard dynamic_dashboard {
     }
     tab tab_mum7: CanvasLayout {
       label: 'Tab 2'
-      width: 1300
-      height: 800
+      width: 460
+      height: 340
       grid_size: 20
       auto_expand_vertically: true
       block v_5irp {
