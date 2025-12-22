@@ -128,7 +128,7 @@ Dashboard dynamic_dashboard {
     label: 'View 1'
     tab view_1: CanvasLayout {
       label: 'original tab'
-      height: 1280
+      height: 1180
       grid_size: 20
       block v1 {
         position: pos(20, 160, 760, 540)
@@ -138,7 +138,7 @@ Dashboard dynamic_dashboard {
         position: pos(20, 20, 1160, 120)
       }
       block v_q0n6 {
-        position: pos(640, 720, 760, 540)
+        position: pos(640, 720, 760, 440)
         layer: 1
       }
       width: 1420
@@ -157,7 +157,7 @@ Dashboard dynamic_dashboard {
       }
     }
     tab tab_ltgv: CanvasLayout {
-      label: 'Untitled'
+      label: 'new tab'
       width: 1300
       height: 800
       grid_size: 20
