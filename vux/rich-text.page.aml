@@ -2434,13 +2434,16 @@ padding-right: 0.50rem;
 		
 	}
 
+  ul.deals-container {
+    padding: 0px;
+    margin: 0px;
+  }
+
 	.deal-container {
 		overflow: hidden; 
 		border-radius: 0.75rem; 
 		border: 1px solid #E5E7EB;
 		list-style: none;
-    margin-left: 0px!important;
-    padding-left: 0px!important;
 	}
 
 	.deal-header {
@@ -2745,7 +2748,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
 
 {% end %}
 
-</ul>     ;;
+</ul>      ;;
       settings {
         show_row_total: true
         show_column_total: true
