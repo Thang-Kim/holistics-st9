@@ -156,19 +156,6 @@ Dashboard dynamic_dashboard {
         mode: 'auto'
       }
     }
-    tab tab_ltgv: CanvasLayout {
-      label: 'new tab'
-      width: 1300
-      height: 800
-      grid_size: 20
-      auto_expand_vertically: true
-      block v_5irp {
-        position: pos(40, 20, 400, 300)
-      }
-      mobile {
-        mode: 'auto'
-      }
-    }
   }
   theme: H.themes.classic
   interactions: []
