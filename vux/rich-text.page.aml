@@ -2412,8 +2412,8 @@ padding-right: 0.50rem;
 		display: grid;
 		padding: 0rem; 
 		grid-template-columns: repeat(1, minmax(0, 1fr)); 
-		column-gap: 0.5rem; 
-		row-gap: 0.5rem; 
+		column-gap: 0.7rem; 
+		row-gap: 0.7rem; 
 		list-style: none;
 		grid-template-columns: repeat(1, minmax(0, 1fr)); 
     @media (min-width: 1024px) { 
@@ -2421,22 +2421,21 @@ padding-right: 0.50rem;
 		}
 		@media (min-width: 1280px) { 
 			grid-template-columns: repeat(2, minmax(0, 1fr)); 
-			column-gap: 0.5rem; 
+			column-gap: 0.7rem; 
 		}
 		@media (min-width: 1536px) { 
 			grid-template-columns: repeat(3, minmax(0, 1fr)); 
-			column-gap: 0.5rem; 
+			column-gap: 0.7rem; 
 		}
 		@media (min-width: 1960px) { 
 			grid-template-columns: repeat(3, minmax(0, 1fr)); 
-			column-gap: 0.5rem; 
+			column-gap: 0.7rem; 
 		}
 		
 	}
 
   ul.deals-container {
     padding: 0px;
-    margin: 0px;
   }
 
 	.deal-container {
@@ -2448,7 +2447,7 @@ padding-right: 0.50rem;
 
 	.deal-header {
 		display: flex; 
-		padding: 1.5rem; 
+		padding: 0.3rem 1rem; 
 		column-gap: 1rem; 
 		align-items: center; 
 		border-bottom: 1px solid rgb(17 24 39 / 0.05); 
@@ -2464,6 +2463,7 @@ padding-right: 0.50rem;
 		width: 3rem; 
 		height: 3rem; 
 		background-color: #ffffff; 
+    margin-top: 0.7rem;
 	}
 
 	.deal-name {
@@ -2472,7 +2472,21 @@ padding-right: 0.50rem;
 		font-weight: 500; 
 		line-height: 1rem; 
 		color: #111827; 
+    white-space: nowrap;      /* Prevents text from wrapping */
+    overflow: hidden;         /* Hides overflowing text */
+    text-overflow: ellipsis;  /* Displays ellipsis (...) */
+    width: 200px;             /* Or max-width, or similar constraint */
+    display: block;           /* CRITICAL: Ensures block-level behavior */
 	}
+
+  /*
+  .deal-name {
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden;    /* Hides overflowing text */
+    text-overflow: ellipsis; /* Displays ellipsis (...) */
+    width: 200px;        /* Or max-width, or similar constraint */
+	}
+  */
 
 	.deal-details {
       padding-top: 0.5rem;
@@ -2756,7 +2770,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
   }
   block v_38hm: VizBlock {
-    label: 'User Specs copy'
+    label: 'User Specs'
     viz: MarkdownViz {
       dataset: ecommerce_official
       filter {
@@ -3268,27 +3282,27 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
     tab tab_i4rv: CanvasLayout {
       label: 'Thumbnail'
-      width: 1800
-      height: 2060
+      width: 1860
+      height: 1060
       grid_size: 20
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_mcpc {
-        position: pos(20, 180, 1260, 240)
+        position: pos(20, 160, 1320, 240)
       }
       block v_gm4b {
-        position: pos(20, 20, 660, 160)
+        position: pos(20, 20, 1760, 120)
       }
       block v_xr4t {
-        position: pos(20, 420, 600, 460)
+        position: pos(20, 400, 620, 640)
       }
       block v_115j {
-        position: pos(620, 420, 660, 980)
+        position: pos(640, 400, 700, 640)
       }
       block v_38hm {
-        position: pos(1280, 180, 620, 520)
+        position: pos(1340, 160, 500, 520)
       }
     }
   }
