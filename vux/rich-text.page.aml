@@ -3283,7 +3283,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
       }
     }
     tab tab_i4rv: CanvasLayout {
-      label: 'Thumbnail'
+      label: '📸 Thumbnail'
       width: 1860
       height: 1000
       auto_expand_vertically: true
