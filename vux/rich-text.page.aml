@@ -2021,17 +2021,19 @@ padding-right: 0.50rem;
   .country-selector {
     display: flex;
     gap: 1rem;
-    padding: 1rem;
+    padding: 0.3rem;
     flex-wrap: wrap;
   }
 
   .country-card {
     position: relative;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-    padding: 1.25rem 1.5rem;
+    /* padding: 1.25rem 1.5rem; */
+    padding: 0.75rem 1rem;
     background: #FFFFFF;
     border: 2px solid #E5E7EB;
     border-radius: 12px;
@@ -2110,7 +2112,7 @@ padding-right: 0.50rem;
    <!-- </h-drill> -->
    </div>
 {% end %}
-</div>       ;;
+</div>        ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -3283,26 +3285,25 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     tab tab_i4rv: CanvasLayout {
       label: 'Thumbnail'
       width: 1860
-      height: 1060
-      grid_size: 20
+      height: 1000
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_mcpc {
-        position: pos(20, 160, 1320, 240)
+        position: pos(20, 110, 1320, 240)
       }
       block v_gm4b {
-        position: pos(20, 20, 1760, 120)
+        position: pos(20, 20, 1820, 90)
       }
       block v_xr4t {
-        position: pos(20, 400, 620, 640)
+        position: pos(20, 350, 620, 640)
       }
       block v_115j {
-        position: pos(640, 400, 700, 640)
+        position: pos(640, 350, 700, 640)
       }
       block v_38hm {
-        position: pos(1340, 160, 500, 520)
+        position: pos(1340, 110, 500, 520)
       }
     }
   }
