@@ -32,6 +32,19 @@ Dashboard dynamic_dashboard {
             color_palette: 0
           }
         }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce_cities.name)
+            aggregation: 'count'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color_palette: 'seq-magma'
+          }
+        }
       }
       settings {
         x_axis_show_null_datetime: false
