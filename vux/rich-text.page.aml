@@ -3196,6 +3196,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
 
   .insights-container {
     padding: 0.5rem;
+
     max-width: 2000px;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -3206,7 +3207,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
   }
 
   .insights-container ul {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     padding-left: 1rem;
     list-style: none;
   }
@@ -3383,16 +3384,16 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
         position: pos(10, 10, 1870, 80)
       }
       block v_xr4t {
-        position: pos(10, 300, 640, 650)
+        position: pos(10, 310, 640, 650)
       }
       block v_115j {
-        position: pos(660, 300, 710, 650)
+        position: pos(660, 310, 710, 650)
       }
       block v_38hm {
         position: pos(1380, 100, 500, 520)
       }
       block t_7kpy {
-        position: pos(10, 100, 1360, 190)
+        position: pos(10, 100, 1360, 200)
       }
     }
   }
