@@ -2185,7 +2185,7 @@ padding-right: 0.50rem;
       content: @md <style>
   .dumbbell-container {
     padding: 1.5rem;
-    max-width: 750px;
+    max-width: 600px;
   }
 
   .dumbbell-row {
@@ -2428,10 +2428,10 @@ padding-right: 0.50rem;
 		list-style: none;
 		grid-template-columns: repeat(1, minmax(0, 1fr)); 
     @media (min-width: 1024px) { 
-			grid-template-columns: repeat(2, minmax(0, 1fr)); 
+			grid-template-columns: repeat(3, minmax(0, 1fr)); 
 		}
 		@media (min-width: 1280px) { 
-			grid-template-columns: repeat(2, minmax(0, 1fr)); 
+			grid-template-columns: repeat(3, minmax(0, 1fr)); 
 			column-gap: 0.7rem; 
 		}
 		@media (min-width: 1536px) { 
@@ -3371,7 +3371,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
     tab tab_i4rv: CanvasLayout {
       label: '📸 Thumbnail'
-      width: 1890
+      width: 1680
       height: 1500
       auto_expand_vertically: true
       mobile {
@@ -3381,19 +3381,19 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
         position: pos(16, 1132, 1369, 240)
       }
       block v_gm4b {
-        position: pos(10, 10, 1870, 80)
+        position: pos(10, 10, 1660, 80)
       }
       block v_xr4t {
-        position: pos(10, 310, 640, 650)
+        position: pos(10, 340, 530, 650)
       }
       block v_115j {
-        position: pos(660, 310, 710, 650)
+        position: pos(550, 340, 650, 650)
       }
       block v_38hm {
-        position: pos(1380, 100, 500, 520)
+        position: pos(1210, 100, 460, 530)
       }
       block t_7kpy {
-        position: pos(10, 100, 1360, 200)
+        position: pos(10, 100, 1190, 230)
       }
     }
   }
