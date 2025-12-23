@@ -2478,7 +2478,7 @@ padding-right: 0.50rem;
 	}
 
 	.deal-name {
-		font-size: 0.9rem;
+		font-size: 0.825rem;
 		line-height: 1.25rem; 
 		font-weight: 500; 
 		line-height: 1rem; 
