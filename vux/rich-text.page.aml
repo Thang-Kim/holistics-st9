@@ -2782,7 +2782,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
   }
   block v_38hm: VizBlock {
-    label: 'User Details'
+    label: 'Top Customer'
     viz: MarkdownViz {
       dataset: ecommerce_official
       filter {
