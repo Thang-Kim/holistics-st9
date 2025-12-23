@@ -3162,6 +3162,82 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
       }
     }
   }
+  block t_7kpy: TextBlock {
+    content: @md <style>
+  .insights-badge {
+    display: inline-block;
+    background: #EFF6FF;
+    color: #1E40AF;
+    padding: 0.08rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .insights-badge.red {
+    background: #FEF2F2;
+    color: #DC2626;
+  }
+
+  .insights-badge.green {
+    background: #F0FDF4;
+    color: #16A34A;
+  }
+
+  .insights-container {
+    padding: 0.5rem;
+    max-width: 2000px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #374151;
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .insights-container ul {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    list-style: none;
+  }
+
+  .insights-container li {
+    margin-bottom: 0.5rem;
+  }
+
+  .insights-container li:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="insights-container">
+  <!-- <p><strong>Key Insights:</strong></p> -->
+  <ul>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>Top Performers:</strong>
+    <span>Dumbbells</span> (<span class="insights-badge">500</span>),
+    <span>Fitness Tracker</span> (<span class="insights-badge">450</span>),
+    and <span>Jump Rope</span> (<span class="insights-badge">420</span>) lead in actual sales conversions.
+  </p></li>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>Largest Cart Abandonment:</strong>
+    <span>Exercise Bike</span> shows the biggest gap with <span class="insights-badge red">320</span> abandoned 
+    (<span style="color: #DC2626; font-weight: 600;">500</span> added vs. <span style="color: #0891F2; font-weight: 600;">180</span> purchased),
+    followed by <span>Resistance Bands</span> (<span class="insights-badge red">240</span>) 
+    and <span>Yoga Mat</span> (<span class="insights-badge red">210</span>).
+  </p></li>
+  <li><p style="margin-bottom: 1rem; line-height: 1.8;">
+    <strong>High Conversion Rate:</strong>
+    <span>Dumbbells</span> (<span class="insights-badge green">20</span> unit gap),
+    <span>Fitness Tracker</span> (<span class="insights-badge green">50</span>),
+    and <span>Jump Rope</span> (<span class="insights-badge green">60</span>) demonstrate the strongest purchase intent.
+  </p></li>
+  <li><p style="margin-bottom: 0; line-height: 1.8;">
+    <strong>Opportunity Area:</strong> Products with <span class="insights-badge red">&ge;210</span> gap suggest potential for targeted remarketing campaigns or checkout optimization.
+  </p></li>
+  </ul>
+</div>;;
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab2: CanvasLayout {
@@ -3284,26 +3360,29 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
     tab tab_i4rv: CanvasLayout {
       label: '📸 Thumbnail'
-      width: 1860
-      height: 1000
+      width: 1900
+      height: 1500
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_mcpc {
-        position: pos(20, 110, 1320, 240)
+        position: pos(20, 1240, 1320, 240)
       }
       block v_gm4b {
-        position: pos(20, 20, 1820, 90)
+        position: pos(20, 20, 1870, 90)
       }
       block v_xr4t {
-        position: pos(20, 350, 620, 640)
+        position: pos(20, 320, 640, 640)
       }
       block v_115j {
-        position: pos(640, 350, 700, 640)
+        position: pos(670, 320, 710, 640)
       }
       block v_38hm {
-        position: pos(1340, 110, 500, 520)
+        position: pos(1390, 120, 500, 520)
+      }
+      block t_7kpy {
+        position: pos(20, 120, 1360, 190)
       }
     }
   }
