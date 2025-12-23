@@ -2033,7 +2033,7 @@ padding-right: 0.50rem;
     align-items: center;
     gap: 0.5rem;
     /* padding: 1.25rem 1.5rem; */
-    padding: 0.75rem 1rem;
+    padding: 0.7rem 0.9rem;
     background: #FFFFFF;
     border: 2px solid #E5E7EB;
     border-radius: 12px;
@@ -2085,13 +2085,13 @@ padding-right: 0.50rem;
   }
 
   .country-icon {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1;
   }
 
   .country-label {
-    font-size: 0.9375rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     color: #111827;
   }
 
@@ -2112,7 +2112,7 @@ padding-right: 0.50rem;
    <!-- </h-drill> -->
    </div>
 {% end %}
-</div>        ;;
+</div>         ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -2185,12 +2185,12 @@ padding-right: 0.50rem;
       content: @md <style>
   .dumbbell-container {
     padding: 1.5rem;
-    max-width: 800px;
+    max-width: 750px;
   }
 
   .dumbbell-row {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: auto 1fr;
     gap: 0rem;
     align-items: center;
     padding: 1rem 0;
@@ -2352,7 +2352,7 @@ padding-right: 0.50rem;
     </div>
   </div>
 {% end %}
-</div>       ;;
+</div>        ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -2368,6 +2368,15 @@ padding-right: 0.50rem;
         formula: @aql sum(order_items, order_items.quantity * products.price);;
         calc_type: 'measure'
         data_type: 'number'
+      }
+      filter {
+        field: r(categories.name)
+        operator: 'is_not'
+        value: [
+          'Baking and Cooking',
+          'Kitchen and Dininng',
+          'Home Entertainment'
+        ]
       }
       rows: [
         VizFieldFull {
@@ -2510,6 +2519,7 @@ padding-right: 0.50rem;
       padding-bottom: 0.3rem; 
       column-gap: 1rem; 
       justify-content: space-between; 
+      text-alignment: right;
 	}
 
 
@@ -2764,7 +2774,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
 
 {% end %}
 
-</ul>      ;;
+</ul>       ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -2772,7 +2782,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
   }
   block v_38hm: VizBlock {
-    label: 'User Specs'
+    label: 'User Details'
     viz: MarkdownViz {
       dataset: ecommerce_official
       filter {
@@ -3155,7 +3165,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     <span class="detail-value">{{ rows.0.`User ID` }}</span>
   </div>
 </div>
-</div>  ;;
+</div>   ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -3360,29 +3370,29 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
     tab tab_i4rv: CanvasLayout {
       label: '📸 Thumbnail'
-      width: 1900
+      width: 1890
       height: 1500
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_mcpc {
-        position: pos(20, 1240, 1320, 240)
+        position: pos(16, 1132, 1369, 240)
       }
       block v_gm4b {
-        position: pos(20, 20, 1870, 90)
+        position: pos(10, 10, 1870, 80)
       }
       block v_xr4t {
-        position: pos(20, 320, 640, 640)
+        position: pos(10, 300, 640, 650)
       }
       block v_115j {
-        position: pos(670, 320, 710, 640)
+        position: pos(660, 300, 710, 650)
       }
       block v_38hm {
-        position: pos(1390, 120, 500, 520)
+        position: pos(1380, 100, 500, 520)
       }
       block t_7kpy {
-        position: pos(20, 120, 1360, 190)
+        position: pos(10, 100, 1360, 190)
       }
     }
   }
