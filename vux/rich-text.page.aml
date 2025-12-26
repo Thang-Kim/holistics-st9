@@ -3756,6 +3756,10 @@ Products with <span class="insights-badge red">&ge;210</span> gap suggest potent
     font-size: 0.85rem;
   }
 
+ .oppor-items {
+   font-weight: bold;
+ }
+
   .insights-badge.red {
     background: #FEF2F2;
     color: #DC2626;
@@ -3804,10 +3808,9 @@ Products with <span class="insights-badge red">&ge;210</span> gap suggest potent
 
   <li><p>
     <strong>Opportunity Area:</strong><br>
-Products with <span class="insights-badge red">&ge;210</span> gap suggest potential for targeted remarketing campaigns or checkout optimization:
-<span>Exercise Bike</span> (<span class="insights-badge red">320</span> abandoned),
-<span>Resistance Bands</span> (<span class="insights-badge red">240</span>)
-and <span>Yoga Mat</span> (<span class="insights-badge red">210</span>).
+Potential products for targeted remarketing campaigns or checkout optimization: <span class="oppor-items">Exercise Bike</span> (<span class="insights-badge red">320</span> abandoned),
+<span class="oppor-items">Resistance Bands</span> (<span class="insights-badge red">240</span>)
+and <span class="oppor-items">Yoga Mat</span> (<span class="insights-badge red">210</span>).
   </p></li>
   </ul>
 </div>;;
@@ -5073,7 +5076,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
         position: pos(430, 100, 490, 570)
       }
       block t_w99k {
-        position: pos(10, 690, 410, 570)
+        position: pos(10, 680, 410, 570)
       }
     }
   }
