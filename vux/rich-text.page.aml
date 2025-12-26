@@ -1556,7 +1556,7 @@ padding-right: 0.50rem;
   }
 
   .h-drill-selected {
-    color: green;
+    color: #2563EB;
   }
 
   .country-card:has(.h-drill-selected) {
@@ -1609,7 +1609,7 @@ padding-right: 0.50rem;
     <span class="country-label">{{ `Country` }}</span>
   </div>
 {% end %}
-</div>   ;;
+</div>    ;;
       settings {
         show_row_total: true
         show_column_total: true
