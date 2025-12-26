@@ -2344,7 +2344,7 @@ padding-right: 0.50rem;
     }
   }
   block v_d07p: VizBlock {
-    label: 'Revenue, Revenue Last Month and 3 more by Month Created At'
+    label: 'Revenue, Revenue Last Month and 4 more by Month Created At'
     viz: MarkdownViz {
       dataset: ecommerce_official
       calculation delta {
@@ -2370,6 +2370,15 @@ padding-right: 0.50rem;
         formula: @aql case(
   when: delta < 0, then: 'red',
   else: 'green'
+);;
+        calc_type: 'measure'
+        data_type: 'text'
+      }
+      calculation delta_text {
+        label: 'Delta Text'
+        formula: @aql case (
+  when: delta < 0, then: concat('▾ ', cast(delta_abs, 'text')),
+  else: concat('▴ ', cast(delta_abs, 'text'))
 );;
         calc_type: 'measure'
         data_type: 'text'
@@ -2419,6 +2428,12 @@ padding-right: 0.50rem;
           format {
             type: 'text'
           }
+        },
+        VizFieldFull {
+          ref: 'delta_text'
+          format {
+            type: 'text'
+          }
         }
       ]
       content: @md <style>
@@ -2454,7 +2469,7 @@ padding-right: 0.50rem;
 </div>
 
 <div class="custom_revenue_kpi">
-  <span class="custom_compare_value"><strong>{{ rows.1.values.`Delta Abs` }}</strong></span>
+  <span class="custom_compare_value"><strong>{{ rows.1.values.`Delta Text` }}</strong></span>
 </div> 
 </div> ;;
       settings {
@@ -2704,10 +2719,10 @@ padding-right: 0.50rem;
         position: pos(360, 20, 360, 180)
       }
       block v_nlyj {
-        position: pos(0, 20, 340, 180)
+        position: pos(20, 20, 340, 180)
       }
       block v_vymh {
-        position: pos(0, 200, 340, 180)
+        position: pos(20, 200, 340, 180)
       }
     }
   }
