@@ -1311,6 +1311,16 @@ padding-right: 0.50rem;
         operator: 'is'
         value: true
       }
+      filter {
+        field: r(countries.name)
+        operator: 'is'
+        value: [
+          'Germany',
+          'Singapore',
+          'United States',
+          'Vietnam'
+        ]
+      }
       rows: [
         VizFieldFull {
           label: 'Country'
@@ -1440,7 +1450,7 @@ padding-right: 0.50rem;
       <span class="detail-value">{{ rows[0].`City` }}</span>
     </div>
   </div>
-</div>    ;;
+</div>     ;;
       settings {
         show_row_total: true
         show_column_total: true
