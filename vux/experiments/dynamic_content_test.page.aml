@@ -2374,14 +2374,20 @@ padding-right: 0.50rem;
         calc_type: 'measure'
         data_type: 'text'
       }
-      calculation delta_text {
-        label: 'Delta Text'
-        formula: @aql case (
-  when: delta < 0, then: concat('▾ ', cast(delta_abs, 'text')),
-  else: concat('▴ ', cast(delta_abs, 'text'))
+      calculation triangle_sign {
+        label: 'Triangle Sign'
+        formula: @aql case(
+  when: delta < 0,
+  then: "▾",
+  else: "▴"
 );;
         calc_type: 'measure'
         data_type: 'text'
+      }
+      filter {
+        field: r(orders.created_at)
+        operator: 'matches'
+        value: 'last month'
       }
       rows: [
         VizFieldFull {
@@ -2430,31 +2436,40 @@ padding-right: 0.50rem;
           }
         },
         VizFieldFull {
-          ref: 'delta_text'
+          ref: 'triangle_sign'
           format {
             type: 'text'
           }
         }
       ]
       content: @md <style>
+div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container) {
+  border-style: solid!important;
+  border-color: {{ rows.0.values.`Delta Color`.raw }};
+  border-width: .15rem;
+}
+
 .custom_kpi_container {
   border-style: solid;
   border-color: red;
 }
 
 .custom_revenue_kpi {
-  margin: 1rem;
+  margin: 1rem 1rem 1.5rem 1rem;
+  color: #4C5159;
 }
 .custom_kpi_title {
   font-size: 24px;
 }
 .custom_kpi_value {
-  font-size: 40px;
+  font-size: 48px;
 }
 .custom_compare_value {
-  font-size: 18px;
+  padding: 2px 6px;
+  font-size: 16px;
   color: white;
-  background-color: {{ rows.1.values.`Delta Color`.raw }};
+  background-color: {{ rows.0.values.`Delta Color`.raw }};
+  border-radius: 0.375rem;
 }
 </style>
 
@@ -2465,13 +2480,13 @@ padding-right: 0.50rem;
 </div>
 
 <div class="custom_revenue_kpi"> 
-  <span class="custom_kpi_value"><strong>{{ rows.1.values.`Revenue` }}</strong></span>
+  <span class="custom_kpi_value"><strong>{{ rows.0.values.`Revenue` }}</strong></span>
 </div>
 
 <div class="custom_revenue_kpi">
-  <span class="custom_compare_value"><strong>{{ rows.1.values.`Delta Text` }}</strong></span>
+  <span class="custom_compare_value"><strong>{{ rows.0.values.`Triangle Sign` }} {{ rows.0.values.`Delta Abs` }}</strong></span>
 </div> 
-</div> ;;
+</div>     ;;
       settings {
         show_row_total: true
         show_column_total: true
@@ -2545,6 +2560,161 @@ padding-right: 0.50rem;
       settings {
         display_mode: 'compare_by_number'
         alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_84a6: VizBlock {
+    label: 'Revenue, Revenue Last Month and 4 more by Month Created At copy'
+    viz: MarkdownViz {
+      dataset: ecommerce_official
+      calculation delta {
+        label: 'Delta'
+        formula: @aql revenue - revenue_last_month;;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation revenue_last_month {
+        label: 'Revenue Last Month'
+        formula: @aql revenue | relative_period(orders.created_at, -1);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation delta_abs {
+        label: 'Delta Abs'
+        formula: @aql abs(delta);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation delta_color {
+        label: 'Delta Color'
+        formula: @aql case(
+  when: delta < 0, then: 'red',
+  else: 'green'
+);;
+        calc_type: 'measure'
+        data_type: 'text'
+      }
+      calculation triangle_sign {
+        label: 'Triangle Sign'
+        formula: @aql case(
+  when: delta < 0,
+  then: "▾",
+  else: "▴"
+);;
+        calc_type: 'measure'
+        data_type: 'text'
+      }
+      rows: [
+        VizFieldFull {
+          ref: r(orders.created_at)
+          transformation: 'datetrunc month'
+          format {
+            type: 'date'
+            pattern: 'LLL yyyy'
+          }
+          uname: 'datetrunc_month_created_at'
+        }
+      ]
+      values: [
+        VizFieldFull {
+          ref: r(ecommerce_official.revenue)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: 'revenue_last_month'
+          format {
+            type: 'number'
+            pattern: '[$$]#,###'
+          }
+        },
+        VizFieldFull {
+          ref: 'delta'
+          format {
+            type: 'number'
+            pattern: '[$$]#,###'
+          }
+        },
+        VizFieldFull {
+          ref: 'delta_abs'
+          format {
+            type: 'number'
+            pattern: '[$$]#,###'
+          }
+        },
+        VizFieldFull {
+          label: 'Delta Color 2'
+          ref: 'delta_color'
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: 'triangle_sign'
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      content: @md <style>
+div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
+  border-style: solid!important;
+  border-color: {{ rows.1.values.`Delta Color 2`.raw }};
+  border-width: .15rem;
+}
+
+.custom_kpi_container2 {
+  border-style: solid;
+  border-color: red;
+}
+
+.custom_revenue_kpi {
+  margin: 1rem 1rem 1.5rem 1rem;
+  color: #4C5159;
+}
+.custom_kpi_title {
+  font-size: 24px;
+}
+.custom_kpi_value {
+  font-size: 48px;
+}
+.custom_compare_value2 {
+  padding: 2px 6px;
+  font-size: 16px;
+  color: white;
+  background-color: {{ rows.1.values.`Delta Color 2`.raw }};
+  border-radius: 0.375rem;
+}
+</style>
+
+<div class="custom_kpi_container2">
+
+<div class="custom_revenue_kpi">
+<span class="custom_kpi_title">Revenue</span>
+</div>
+
+<div class="custom_revenue_kpi"> 
+  <span class="custom_kpi_value"><strong>{{ rows.1.values.`Revenue` }}</strong></span>
+</div>
+
+<div class="custom_revenue_kpi">
+  <span class="custom_compare_value2"><strong>{{ rows.1.values.`Triangle Sign` }} {{ rows.1.values.`Delta Abs` }}</strong></span>
+</div> 
+</div>     ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+        sorts: [
+          SortSetting {
+            key: 'datetrunc_month_created_at'
+            direction: 'desc'
+          }
+        ]
       }
     }
     settings {
@@ -2716,13 +2886,16 @@ padding-right: 0.50rem;
         mode: 'auto'
       }
       block v_d07p {
-        position: pos(360, 20, 360, 180)
+        position: pos(360, 20, 340, 180)
       }
       block v_nlyj {
         position: pos(20, 20, 340, 180)
       }
       block v_vymh {
         position: pos(20, 200, 340, 180)
+      }
+      block v_84a6 {
+        position: pos(360, 200, 340, 180)
       }
     }
   }
@@ -2741,7 +2914,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2761,7 +2935,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2779,7 +2954,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2801,7 +2977,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2823,7 +3000,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2842,7 +3020,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2861,7 +3040,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2884,7 +3064,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2904,7 +3085,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2924,7 +3106,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2944,7 +3127,8 @@ padding-right: 0.50rem;
             'v_bzvx',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -2968,7 +3152,8 @@ padding-right: 0.50rem;
             'v_i51a',
             'v_d07p',
             'v_nlyj',
-            'v_vymh'
+            'v_vymh',
+            'v_84a6'
           ]
           disabled: true
         }
@@ -3020,6 +3205,28 @@ padding-right: 0.50rem;
     },
     FilterInteraction {
       from: 'v_vymh'
+      to: [
+        CustomMapping {
+          block: [
+            'v_p5re',
+            'v_fyrn',
+            'v_93o6',
+            'v_0k2v',
+            'v_g7tl',
+            'v_mdra',
+            'v_ggbb',
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a',
+            'v_bzvx'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_84a6'
       to: [
         CustomMapping {
           block: [
