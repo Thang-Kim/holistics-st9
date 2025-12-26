@@ -2878,7 +2878,7 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
     }
     tab tab_rplq: CanvasLayout {
       label: 'KPI Styling'
-      width: 1300
+      width: 720
       height: 800
       grid_size: 20
       auto_expand_vertically: true
