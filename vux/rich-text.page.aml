@@ -4238,7 +4238,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
   }
   block v_74bw: VizBlock {
-    label: 'Add-to-Carts vs. Purchases'
+    label: 'Dumbbell Chart: Add-to-Carts vs. Purchases'
     viz: MarkdownViz {
       dataset: product_performance
       filter {
