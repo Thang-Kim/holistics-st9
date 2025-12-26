@@ -4727,6 +4727,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     font-size: 0.875rem;
     color: #111827;
     font-weight: 600;
+    padding: 0rem 0.75rem;
   }
 
   /* Status Badge */
@@ -4886,7 +4887,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     <span class="detail-value">{{ rows.0.`Last Order Date` }}</span>
   </div>
 </div>
-</div>     ;;
+</div>      ;;
       settings {
         show_row_total: true
         show_column_total: true
