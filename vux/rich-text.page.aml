@@ -4235,6 +4235,11 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     label: 'Add-to-Carts vs. Purchases'
     viz: MarkdownViz {
       dataset: product_performance
+      filter {
+        field: r(product_sales_performance_new_csv.product_name)
+        operator: 'is_not'
+        value: 'Yoga Mat'
+      }
       rows: [
         VizFieldFull {
           ref: r(product_sales_performance_new_csv.product_name)
@@ -4293,7 +4298,7 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
       ]
       content: @md <style>
   .dumbbell-container {
-    padding: 1.5rem;
+    padding: .8rem 1.5rem;
     max-width: 600px;
   }
 
@@ -5008,20 +5013,20 @@ border: 1px solid rgb(22 163 74 / 0.1)\;\;
     }
     tab tab_8eax: CanvasLayout {
       label: 'Thumbnail 2'
-      width: 1190
+      width: 1160
       height: 980
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_fr0y {
-        position: pos(10, 520, 1170, 450)
+        position: pos(10, 520, 1140, 450)
       }
       block v_74bw {
-        position: pos(10, 10, 660, 500)
+        position: pos(10, 10, 630, 500)
       }
       block v_pyma {
-        position: pos(680, 10, 500, 500)
+        position: pos(650, 10, 500, 500)
       }
     }
     tab tab_ixd2: CanvasLayout {
