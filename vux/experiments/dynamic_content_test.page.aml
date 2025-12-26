@@ -2878,15 +2878,15 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
     }
     tab tab_rplq: CanvasLayout {
       label: 'KPI Styling'
-      width: 720
-      height: 800
+      width: 740
+      height: 400
       grid_size: 20
       auto_expand_vertically: true
       mobile {
         mode: 'auto'
       }
       block v_d07p {
-        position: pos(360, 20, 340, 180)
+        position: pos(360, 20, 360, 180)
       }
       block v_nlyj {
         position: pos(20, 20, 340, 180)
@@ -2895,7 +2895,7 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
         position: pos(20, 200, 340, 180)
       }
       block v_84a6 {
-        position: pos(360, 200, 340, 180)
+        position: pos(360, 200, 360, 180)
       }
     }
   }
