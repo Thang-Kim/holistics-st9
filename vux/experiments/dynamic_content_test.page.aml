@@ -2721,6 +2721,26 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
       hide_label: true
     }
   }
+  block v_2q8l: VizBlock {
+    label: 'Custom CSS Block'
+    viz: MarkdownViz {
+      dataset: ecommerce_official
+      content: @md <style>
+#block-v_nlyj {
+  border-color: {{ rows.0.`Border Color`.raw }} !important;
+  border-width: 2px !important;
+}
+</style>
+
+<div>
+Custom CSS Block
+</div> ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+      }
+    }
+  }
   view: TabLayout {
     label: 'View 1'
     tab tab2: CanvasLayout {
@@ -2879,7 +2899,7 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
     tab tab_rplq: CanvasLayout {
       label: 'KPI Styling'
       width: 740
-      height: 400
+      height: 740
       grid_size: 20
       auto_expand_vertically: true
       mobile {
@@ -2897,15 +2917,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
       block v_84a6 {
         position: pos(360, 200, 360, 180)
       }
-    }
-    tab tab_5g6p: CanvasLayout {
-      label: 'CSS Block'
-      width: 1300
-      height: 800
-      grid_size: 20
-      auto_expand_vertically: true
-      mobile {
-        mode: 'auto'
+      block v_2q8l {
+        position: pos(20, 460, 260, 100)
       }
     }
   }
@@ -2925,7 +2938,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -2946,7 +2960,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -2965,7 +2980,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -2988,7 +3004,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3011,7 +3028,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3031,7 +3049,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3051,7 +3070,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3075,7 +3095,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3096,7 +3117,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3117,7 +3139,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3138,7 +3161,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3163,7 +3187,8 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
             'v_d07p',
             'v_nlyj',
             'v_vymh',
-            'v_84a6'
+            'v_84a6',
+            'v_2q8l'
           ]
           disabled: true
         }
@@ -3237,6 +3262,28 @@ div.vue-markdown.text-widget-content.p-4:has(.custom_kpi_container2) {
     },
     FilterInteraction {
       from: 'v_84a6'
+      to: [
+        CustomMapping {
+          block: [
+            'v_p5re',
+            'v_fyrn',
+            'v_93o6',
+            'v_0k2v',
+            'v_g7tl',
+            'v_mdra',
+            'v_ggbb',
+            'v_lhqm',
+            'v_l0eq',
+            'v_vq7e',
+            'v_i51a',
+            'v_bzvx'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_2q8l'
       to: [
         CustomMapping {
           block: [
