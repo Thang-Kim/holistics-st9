@@ -1,6 +1,6 @@
 Model vy_test_filter_dependency_sheet_1_csv {
   type: 'table'
-  label: 'Vy test filter dependency sheet 1 csv'
+  label: 'Order Master'
   description: ''
   data_source_name: 'khai_postgre'
   dimension date {
