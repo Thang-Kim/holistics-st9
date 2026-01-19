@@ -20,6 +20,19 @@ Dashboard hehe {
         position: pos(-190, 10, 180, 70)
       }
     }
+    tab tab_3oe9: CanvasLayout {
+      label: 'Product Image Url'
+      width: 970
+      height: 930
+      grid_size: 20
+      auto_expand_vertically: true
+      mobile {
+        mode: 'auto'
+      }
+      block v_utgf {
+        position: pos(-70, -230, 1020, 1140)
+      }
+    }
   }
   theme: H.themes.classic
   block v_2mcy: VizBlock {
@@ -123,4 +136,65 @@ Custom CSS block
       hide_label: true
     }
   }
+  block v_utgf: VizBlock {
+    label: 'Product Overview copy'
+    viz: DataTable {
+      dataset: ecommerce_official
+      calculation revenue_1 {
+        label: 'Revenue'
+        formula: @aql sum(order_items, order_items.quantity * products.price);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      fields: [
+        VizFieldFull {
+          ref: r(products.name)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: r(products.product_image_url)
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+      }
+    }
+  }
+  interactions: [
+    FilterInteraction {
+      from: 'v_2mcy'
+      to: [
+        CustomMapping {
+          block: 'v_utgf'
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_kxhz'
+      to: [
+        CustomMapping {
+          block: 'v_utgf'
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_utgf'
+      to: [
+        CustomMapping {
+          block: [
+            'v_2mcy',
+            'v_kxhz'
+          ]
+          disabled: true
+        }
+      ]
+    }
+  ]
 }
