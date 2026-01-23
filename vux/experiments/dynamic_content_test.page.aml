@@ -2318,7 +2318,19 @@ padding-right: 0.50rem;
           }
         }
       ]
-      content: @md {{ rows }}
+      content: @md ## Map Col Totals, Show Columns
+
+{% map(col_totals) %}
+  <p> {{ value.`Revenue` }}</p>
+{% end %}
+
+## Col Total
+
+{{ col_totals }}
+
+## Basics
+
+{{ rows }}
 
 # Total
 
@@ -2338,7 +2350,9 @@ padding-right: 0.50rem;
 # Cell ref
 
 ## Bottom
-{{ rows.-2.`Product Name` }}  ;;
+{{ rows.-2.`Product Name` }}  
+
+{{ fields.`Revenue`.label }} ;;
       settings {
         show_row_total: true
         show_column_total: true
