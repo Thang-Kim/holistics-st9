@@ -2,7 +2,7 @@ Dashboard dashboard_2 {
   title: 'Dashboard'
   owner: 'son.hoang@holistics.io'
   block v1: VizBlock {
-    label: 'Name and Pareweqeqweqent'
+    label: 'Name and Parent'
     viz: DataTable {
       dataset: ecommerce_dataset
       theme {
