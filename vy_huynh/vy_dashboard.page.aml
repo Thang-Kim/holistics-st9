@@ -1,6 +1,6 @@
 Dashboard untitled_4_2 {
   title: 'vy_dashboard'
-  description: '231232132131'
+  description: '2312321adasdasd32131'
   owner: 'vy.ht@holistics.io'
   block v_ntre: VizBlock {
     label: 'Date, Category, and Sales'
