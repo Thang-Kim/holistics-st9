@@ -1,5 +1,9 @@
 Dashboard untitled_4_2 {
+<<<<<<< HEAD
   title: 'vy_dashboaadasdasdsrd'
+=======
+  title: '123213adasdasd'
+>>>>>>> origin/master
   description: '2312321adasdasd32131'
   owner: 'vy.ht@holistics.io'
   block v_ntre: VizBlock {
@@ -75,7 +79,9 @@ Dashboard untitled_4_2 {
       value: []
     }
   }
-
+  block t_1eap: TextBlock {
+    content: @md adadsada;;
+  }
   view: CanvasLayout {
     label: 'View 1'
     width: 1300
@@ -98,11 +104,13 @@ Dashboard untitled_4_2 {
       position: pos(660, 0, 300, 80)
       layer: 4
     }
+    block t_1eap {
+      position: pos(820, 320, 120, 60)
+    }
     mobile {
       mode: 'auto'
     }
   }
-
   theme: H.themes.vanilla
   interactions: [
     FilterInteraction {
