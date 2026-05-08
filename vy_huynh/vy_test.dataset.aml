@@ -1,6 +1,6 @@
 Dataset vy_test {
   label: '[Demo] Ecommerce (Official)'
-  description: 'asdasdasdasdas'
+  description: ''
   data_source_name: 'khai_postgre'
   models: [
     vy_test_filter_dependency_sheet_1_csv
